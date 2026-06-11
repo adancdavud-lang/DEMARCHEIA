@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0052)file:///C:/Users/Adanc/Downloads/demarches-ia_3.html -->
-<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DemarchIA</title>
-<link href="./DemarchIA_files/css2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
@@ -157,9 +157,49 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
 .bnico{font-size:1.1rem;}
 .bnilb{font-size:.55rem;font-weight:500;color:var(--mu);}
 .bni.on .bnilb{color:var(--bl);font-weight:700;}
+ 
+/* PUB STYLES */
+.pub-top{background:#FFF9C4;border-bottom:1px solid #F0E68C;padding:8px 12px;text-align:center;font-size:12px;color:#856404;}
+.pub-top a{color:#856404;font-weight:700;text-decoration:none;}
+.pub-banner-wrap{max-width:500px;margin:12px auto;padding:0 16px;}
+.pub-card{background:#fff;border:1px solid #E2E8F0;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;align-items:center;gap:10px;text-decoration:none;transition:box-shadow .15s;}
+.pub-card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);}
+.pub-card-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#94A3B8;margin-bottom:3px;}
+.pub-card-title{font-size:13px;font-weight:700;color:#0F172A;}
+.pub-card-sub{font-size:11px;color:#64748B;margin-top:2px;}
+.pub-card-ico{font-size:28px;flex-shrink:0;}
+.pub-card-cta{margin-left:auto;background:linear-gradient(135deg,#059669,#1D4ED8);color:#fff;border-radius:8px;padding:6px 12px;font-size:11px;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.pub-result-wrap{margin:12px 0;}
+ 
+.fixed-pub{position:fixed;top:0;left:0;right:0;z-index:999;background:linear-gradient(90deg,#059669,#1D4ED8);padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:10px;}
+.fixed-pub-txt{font-size:12px;font-weight:600;color:#fff;white-space:nowrap;}
+.fixed-pub-btn{background:#fff;color:#059669;border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+.fixed-pub-close{position:absolute;right:12px;background:none;border:none;color:rgba(255,255,255,.7);font-size:16px;cursor:pointer;padding:0;}
+nav{top:36px !important;}
+ 
+.side-pub{position:fixed;top:50%;transform:translateY(-50%);width:140px;background:#fff;border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.15);z-index:50;text-align:center;overflow:hidden;transition:transform .2s;}
+.side-pub:hover{transform:translateY(-50%) scale(1.02);}
+.side-pub-left{left:10px;}
+.side-pub-right{right:10px;}
+.side-pub-img{width:100%;height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.side-pub-img::before{content:"";position:absolute;inset:0;opacity:.15;}
+.side-pub-img-ico{font-size:36px;position:relative;z-index:1;}
+.side-pub-body{padding:10px 8px;}
+.side-pub-label{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#94A3B8;margin-bottom:4px;}
+.side-pub-title{font-size:12px;font-weight:800;color:#0F172A;margin-bottom:3px;line-height:1.2;letter-spacing:-.3px;}
+.side-pub-sub{font-size:10px;color:#64748B;margin-bottom:8px;line-height:1.35;}
+.side-pub-btn{display:block;border-radius:8px;padding:6px 8px;font-size:10px;font-weight:700;text-decoration:none;color:#fff;}
+.side-pub-close{position:absolute;top:6px;right:6px;background:rgba(0,0,0,.25);border:none;width:18px;height:18px;border-radius:50%;font-size:10px;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;}
+@media(max-width:1100px){.side-pub{display:none;}}
 </style>
 </head>
 <body>
+ 
+<div class="fixed-pub" id="fixed-pub">
+  <span class="fixed-pub-txt">&#127970; Ouvrez un compte bancaire gratuit pour recevoir vos aides CAF</span>
+  <a class="fixed-pub-btn" href="https://bour.so/p/6BOlHSuKEdj" target="_blank" rel="noopener sponsored">Gratuit &#8594;</a>
+  <button class="fixed-pub-close" onclick="document.getElementById('fixed-pub').style.display='none';document.querySelector('nav').style.top='0';">&#10005;</button>
+</div>
 <nav>
   <div class="logo">DemarchIA</div>
   <div class="bgs">
@@ -167,7 +207,11 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
     <span class="bg bgb">Securise</span>
   </div>
 </nav>
-
+ 
+ 
+<div class="pub-top">
+  &#127381; Nouveau : <a href="https://bour.so/p/6BOlHSuKEdj" target="_blank" rel="noopener sponsored">Ouvrez un compte Fortuneo gratuit</a> et recevez vos aides CAF directement dessus
+</div>
 <div class="page active" id="pg-home">
 <div class="wrap">
   <div class="hero">
@@ -181,27 +225,27 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
     </div>
   </div>
   <div class="sb">
-    <span class="si">🔍</span>
+    <span class="si">&#128269;</span>
     <input class="sinput" type="text" id="srch" placeholder="APL, RSA, carte grise, impots..." oninput="filt(this.value)">
   </div>
   <div class="cats" id="cats">
-    <button class="cat on" onclick="fcat(&#39;all&#39;,this)">Tout</button>
-    <button class="cat" onclick="fcat(&#39;aides&#39;,this)">Aides</button>
-    <button class="cat" onclick="fcat(&#39;emploi&#39;,this)">Emploi</button>
-    <button class="cat" onclick="fcat(&#39;docs&#39;,this)">Documents</button>
-    <button class="cat" onclick="fcat(&#39;log&#39;,this)">Logement</button>
-    <button class="cat" onclick="fcat(&#39;ent&#39;,this)">Entreprise</button>
+    <button class="cat on" onclick="fcat('all',this)">Tout</button>
+    <button class="cat" onclick="fcat('aides',this)">Aides</button>
+    <button class="cat" onclick="fcat('emploi',this)">Emploi</button>
+    <button class="cat" onclick="fcat('docs',this)">Documents</button>
+    <button class="cat" onclick="fcat('log',this)">Logement</button>
+    <button class="cat" onclick="fcat('ent',this)">Entreprise</button>
   </div>
   <div class="sh" id="cnt">12 demarches disponibles</div>
-  <div class="dlist" id="dlist"><div class="drow" onclick="go(&#39;apl&#39;)"><div class="dico" style="background:#EEF2FF">🏠</div><div style="flex:1"><div class="dname">Demande d APL</div><div class="ddesc">Aide au logement CAF</div><div class="dmeta"><span class="dtime">3 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;rsa&#39;)"><div class="dico" style="background:#ECFDF5">💶</div><div style="flex:1"><div class="dname">Demande de RSA</div><div class="ddesc">Revenu de Solidarite Active</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;chomage&#39;)"><div class="dico" style="background:#F5F3FF">💼</div><div style="flex:1"><div class="dname">Inscription Pole Emploi</div><div class="ddesc">Allocations chomage ARE</div><div class="dmeta"><span class="dtime">3 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;cni&#39;)"><div class="dico" style="background:#EEF2FF">🤲</div><div style="flex:1"><div class="dname">Carte identite</div><div class="ddesc">Renouvellement ou premiere demande</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;carte_grise&#39;)"><div class="dico" style="background:#FFF7ED">🚙</div><div style="flex:1"><div class="dname">Carte grise</div><div class="ddesc">Immatriculation changement proprietaire</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;impots&#39;)"><div class="dico" style="background:#FFF7ED">📊</div><div style="flex:1"><div class="dname">Declaration impots</div><div class="ddesc">Revenus deductions remboursements</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;micro&#39;)"><div class="dico" style="background:#ECFDF5">🧾</div><div style="flex:1"><div class="dname">Creer son auto-entreprise</div><div class="ddesc">Micro-entrepreneur SIRET URSSAF</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;logement&#39;)"><div class="dico" style="background:#FDF2F8">🏚</div><div style="flex:1"><div class="dname">Logement social HLM</div><div class="ddesc">Demande numero unique file attente</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;cmu&#39;)"><div class="dico" style="background:#FEF2F2">🏥</div><div style="flex:1"><div class="dname">Complementaire sante solidaire</div><div class="ddesc">CSS anciennement CMU-C</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;naissance&#39;)"><div class="dico" style="background:#FDF2F8">👶</div><div style="flex:1"><div class="dname">Acte de naissance</div><div class="ddesc">Copie integrale demande officielle</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;permis&#39;)"><div class="dico" style="background:#ECFEFF">🚘</div><div style="flex:1"><div class="dname">Permis de conduire</div><div class="ddesc">Remplacement perte duplicata</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;divorce&#39;)"><div class="dico" style="background:#F9FAFB">⚖</div><div style="flex:1"><div class="dname">Divorce a l amiable</div><div class="ddesc">Procedure par consentement mutuel</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div></div>
+  <div class="dlist" id="dlist"></div>
 </div>
 </div>
-
+ 
 <div class="page" id="pg-chat">
 <div class="cwrap">
   <div class="chead">
     <div class="cheadt">
-      <button class="bkbtn" onclick="sp(&#39;home&#39;)">Retour</button>
+      <button class="bkbtn" onclick="sp('home')">Retour</button>
       <div class="cico" id="cico"></div>
       <div><div class="cname" id="cname">Demarche</div><div class="csub" id="csub">Assistant IA</div></div>
     </div>
@@ -213,15 +257,15 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
   <div class="msgs" id="msgs"></div>
   <div class="iarea">
     <textarea class="cta" id="ctxt" placeholder="Pose une question..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
-    <button class="sbtn" onclick="sm()">➤</button>
+    <button class="sbtn" onclick="sm()">&#10148;</button>
   </div>
 </div>
 </div>
-
+ 
 <div class="page" id="pg-result">
 <div class="rwrap" id="rc"></div>
 </div>
-
+ 
 <div class="page" id="pg-dossiers">
 <div class="wrap">
   <div style="font-size:1.2rem;font-weight:800;margin-bottom:.25rem">Mes dossiers</div>
@@ -229,7 +273,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
   <div id="dl"></div>
 </div>
 </div>
-
+ 
 <div class="page" id="pg-params">
 <div class="wrap">
   <div style="font-size:1.2rem;font-weight:800;margin-bottom:.25rem">Parametres</div>
@@ -240,7 +284,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
       <div style="width:40px;height:40px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem">?</div>
       <div><div style="font-weight:700;font-size:.84rem">Non connecte</div><div style="font-size:.69rem;color:var(--mu)">Cree un compte pour sauvegarder</div></div>
     </div>
-    <div style="padding:.75rem .95rem"><button class="btnp" style="font-size:.78rem;padding:.6rem" onclick="alert(&#39;Bientot disponible!&#39;)">Creer un compte gratuit</button></div>
+    <div style="padding:.75rem .95rem"><button class="btnp" style="font-size:.78rem;padding:.6rem" onclick="alert('Bientot disponible!')">Creer un compte gratuit</button></div>
   </div>
   <div class="slbl">Notifications</div>
   <div class="sblk">
@@ -250,21 +294,21 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem
   </div>
   <div class="slbl">Confidentialite</div>
   <div class="sblk">
-    <div class="srow" onclick="cd()"><div><div class="stit" style="color:var(--rd)">Supprimer mes donnees</div><div class="ssub">Efface tout l historique</div></div><span style="color:var(--di)">›</span></div>
-    <div class="srow" onclick="alert(&#39;Aucune donnee personnelle stockee sur nos serveurs.&#39;)"><div><div class="stit">Confidentialite</div><div class="ssub">Aucune donnee vendue</div></div><span style="color:var(--di)">›</span></div>
-    <div class="srow" onclick="alert(&#39;DemarchIA est independant et non affilie a l Etat.&#39;)"><div><div class="stit">Mentions legales</div><div class="ssub">A propos</div></div><span style="color:var(--di)">›</span></div>
+    <div class="srow" onclick="cd()"><div><div class="stit" style="color:var(--rd)">Supprimer mes donnees</div><div class="ssub">Efface tout l historique</div></div><span style="color:var(--di)">&#8250;</span></div>
+    <div class="srow" onclick="alert('Aucune donnee personnelle stockee sur nos serveurs.')"><div><div class="stit">Confidentialite</div><div class="ssub">Aucune donnee vendue</div></div><span style="color:var(--di)">&#8250;</span></div>
+    <div class="srow" onclick="alert('DemarchIA est independant et non affilie a l Etat.')"><div><div class="stit">Mentions legales</div><div class="ssub">A propos</div></div><span style="color:var(--di)">&#8250;</span></div>
   </div>
   <div style="text-align:center;font-size:.66rem;color:var(--di);margin-top:1rem">DemarchIA v3.0 - Non affilie a l Etat</div>
 </div>
 </div>
-
+ 
 <div class="bnav">
-  <div class="bni on" id="bn-home" onclick="sw(&#39;home&#39;)"><div class="bnico">🏠</div><div class="bnilb">Accueil</div></div>
-  <div class="bni" id="bn-dems" onclick="sw(&#39;home&#39;)"><div class="bnico">📋</div><div class="bnilb">Demarches</div></div>
-  <div class="bni" id="bn-dossiers" onclick="sw(&#39;dossiers&#39;)"><div class="bnico">📁</div><div class="bnilb">Mes dossiers</div></div>
-  <div class="bni" id="bn-params" onclick="sw(&#39;params&#39;)"><div class="bnico">⚙</div><div class="bnilb">Parametres</div></div>
+  <div class="bni on" id="bn-home" onclick="sw('home')"><div class="bnico">&#127968;</div><div class="bnilb">Accueil</div></div>
+  <div class="bni" id="bn-dems" onclick="sw('home')"><div class="bnico">&#128203;</div><div class="bnilb">Demarches</div></div>
+  <div class="bni" id="bn-dossiers" onclick="sw('dossiers')"><div class="bnico">&#128193;</div><div class="bnilb">Mes dossiers</div></div>
+  <div class="bni" id="bn-params" onclick="sw('params')"><div class="bnico">&#9881;</div><div class="bnilb">Parametres</div></div>
 </div>
-
+ 
 <script>
 var D=[
   {id:"apl",ico:"&#127968;",name:"Demande d APL",desc:"Aide au logement CAF",cat:"log",t:"3 min",dif:"Facile",bg:"#EEF2FF",
@@ -275,9 +319,9 @@ var D=[
    info:{tp:"ai",tx:"Tu peux faire la demande des la signature du bail. Plus tu attends plus tu perds de mois d aide."},
    warn:{tp:"aw",tx:"Declare tout changement de situation a la CAF sous 60 jours : demenagement nouveau travail mise en couple."},
    dts:[{i:"&#9889;",t:"Cheque energie sur tes factures",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127868;",t:"Prime naissance si enfant attendu",b:"Jusqu a 1000 euros",u:"https://www.caf.fr"},{i:"&#128652;",t:"Pass mobilite reductions transports",b:"Selon ta ville",u:"https://www.service-public.fr"}],
-   prt:[{i:"&#127970;",n:"Fortuneo Banque",d:"Compte gratuit en 5 min pour recevoir l APL",c:"Ouvrir",u:"https://www.fortuneo.fr"},{i:"&#9989;",n:"Hellio Energie",d:"Cumule avec les aides energie simulation gratuite",c:"Simuler",u:"https://www.hellio.com"}],
+   prt:[{i:"&#127970;",n:"BoursoBank",d:"Compte gratuit en 5 min pour recevoir l APL",c:"Ouvrir",u:"https://bour.so/p/6BOlHSuKEdj"},{i:"&#9989;",n:"Hellio Energie",d:"Cumule avec les aides energie simulation gratuite",c:"Simuler",u:"https://www.hellio.com"}],
    lien:"https://www.caf.fr"},
-
+ 
   {id:"rsa",ico:"&#128182;",name:"Demande de RSA",desc:"Revenu de Solidarite Active",cat:"aides",t:"4 min",dif:"Facile",bg:"#ECFDF5",
    qs:[{q:"Situation professionnelle ?",c:["Sans emploi depuis 1 mois","Travail a temps partiel","En formation ou stage","Je reprends bientot le travail"]},{q:"Enfants a charge ?",c:["Non pas d enfants","Oui 1 enfant","Oui 2 enfants","Oui 3 enfants ou plus"]},{q:"Ton age ?",c:["Moins de 25 ans","Entre 25 et 55 ans","Plus de 55 ans"]},{q:"Tu as des economies ?",c:["Non tres peu","Un peu moins de 10 000 euros","Oui plus de 10 000 euros"]}],
    montant:"607 a 1200 euros par mois",
@@ -286,9 +330,9 @@ var D=[
    info:{tp:"aok",tx:"Si tu reprends un travail tu continues a toucher une partie du RSA pendant 3 mois. Appelle ca RSA chapeau."},
    warn:{tp:"aw",tx:"Moins de 25 ans : droit au RSA uniquement si travaille 2 ans sur les 3 dernieres annees."},
    dts:[{i:"&#127973;",t:"Complementaire sante solidaire",b:"Gratuite",u:"https://www.ameli.fr"},{i:"&#9889;",t:"Cheque energie automatique",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127891;",t:"Formations financees a 100%",b:"CPF et Pole Emploi",u:"https://www.moncompteformation.gouv.fr"}],
-   prt:[{i:"&#127891;",n:"OpenClassrooms",d:"Formations reconnues financables Pole Emploi",c:"Voir",u:"https://openclassrooms.com"},{i:"&#128188;",n:"Pole Emploi",d:"Accompagnement pour retrouver un emploi",c:"S inscrire",u:"https://www.pole-emploi.fr"}],
+   prt:[{i:"&#127891;",n:"Shein",d:"Formations reconnues financables Pole Emploi",c:"Voir",u:"https://www.shein.com/discount/D6VKV"},{i:"&#128188;",n:"Pole Emploi",d:"Accompagnement pour retrouver un emploi",c:"S inscrire",u:"https://www.pole-emploi.fr"}],
    lien:"https://www.caf.fr"},
-
+ 
   {id:"chomage",ico:"&#128188;",name:"Inscription Pole Emploi",desc:"Allocations chomage ARE",cat:"emploi",t:"3 min",dif:"Facile",bg:"#F5F3FF",
    qs:[{q:"Pourquoi as-tu perdu ton emploi ?",c:["Licenciement economique ou personnel","Fin de CDD ou interim","Rupture conventionnelle","Demission motif legitime"]},{q:"Tu as travaille combien de temps ?",c:["Moins de 6 mois","Entre 6 mois et 1 an","Entre 1 et 2 ans","Plus de 2 ans"]},{q:"Ton salaire mensuel brut ?",c:["Moins de 1500 euros","Entre 1500 et 2500","Entre 2500 et 4000","Plus de 4000 euros"]}],
    montant:"57 a 75% de ton ancien salaire",
@@ -299,7 +343,7 @@ var D=[
    dts:[{i:"&#127968;",t:"APL aide au logement",b:"Jusqu a 340 euros mois",u:"https://www.caf.fr"},{i:"&#127891;",t:"CPF formation pendant le chomage",b:"500 euros an",u:"https://www.moncompteformation.gouv.fr"},{i:"&#127973;",t:"Maintien mutuelle ex-employeur",b:"12 mois portabilite",u:"https://www.service-public.fr"}],
    prt:[{i:"&#128187;",n:"Malt Freelance",d:"Lance-toi en freelance tout en touchant le chomage",c:"Decouvrir",u:"https://www.malt.fr"},{i:"&#127891;",n:"LinkedIn Learning",d:"2 mois gratuits pour te former",c:"2 mois offerts",u:"https://www.linkedin.com/learning"}],
    lien:"https://www.pole-emploi.fr"},
-
+ 
   {id:"cni",ico:"&#129330;",name:"Carte identite",desc:"Renouvellement ou premiere demande",cat:"docs",t:"2 min",dif:"Facile",bg:"#EEF2FF",
    qs:[{q:"C est pour quoi ?",c:["Renouvellement carte expiree","Premiere carte identite","Perte ou vol","Carte pour enfant mineur"]},{q:"Tu as des photos recentes ?",c:["Oui moins de 6 mois","Non je dois en faire"]},{q:"Tu as un RDV en mairie ?",c:["Oui j ai un RDV","Non je dois en prendre"]}],
    montant:"Gratuit",
@@ -310,7 +354,7 @@ var D=[
    dts:[{i:"&#9992;",t:"Passeport biometrique meme dossier",b:"86 euros",u:"https://www.service-public.fr"},{i:"&#128507;",t:"Inscription listes electorales",b:"Gratuit",u:"https://www.service-public.fr"},{i:"&#127891;",t:"Carte etudiant des metiers",b:"Gratuite",u:"https://www.service-public.fr"}],
    prt:[{i:"&#9992;",n:"Booking.com",d:"Prepare ton voyage avec ta nouvelle CNI",c:"Chercher",u:"https://www.booking.com"},{i:"&#128247;",n:"Photomaton",d:"Photos conformes en 2 min pres de chez toi",c:"Trouver",u:"https://www.photomaton.fr"}],
    lien:"https://predemande.ants.gouv.fr"},
-
+ 
   {id:"carte_grise",ico:"&#128665;",name:"Carte grise",desc:"Immatriculation changement proprietaire",cat:"docs",t:"4 min",dif:"Moyen",bg:"#FFF7ED",
    qs:[{q:"Raison de la demarche ?",c:["Achat vehicule occasion","Vehicule neuf concessionnaire","Changement adresse","Perte ou vol"]},{q:"Tu as le certificat de cession ?",c:["Oui je l ai","Non je dois le recuperer","C est quoi"]},{q:"Controle technique fait ?",c:["Oui moins de 6 mois","Non ou plus de 6 mois","Vehicule moins de 4 ans"]}],
    montant:"30 a 300 euros selon region et puissance",
@@ -321,7 +365,7 @@ var D=[
    dts:[{i:"&#128737;",t:"Compare assurances auto",b:"Economise jusqu a 40%",u:"https://www.lelynx.fr"},{i:"&#9889;",t:"Bonus ecologique vehicule electrique",b:"Jusqu a 7000 euros",u:"https://www.service-public.fr"},{i:"&#128665;",t:"Prime a la conversion",b:"Jusqu a 5000 euros",u:"https://www.primealaconversion.gouv.fr"}],
    prt:[{i:"&#128737;",n:"LeLynx Assurance",d:"Compare assurances auto en 2 min",c:"Comparer",u:"https://www.lelynx.fr"},{i:"&#128295;",n:"Midas",d:"Controle technique pres de chez toi",c:"Trouver",u:"https://www.midas.fr"}],
    lien:"https://immatriculation.ants.gouv.fr"},
-
+ 
   {id:"impots",ico:"&#128202;",name:"Declaration impots",desc:"Revenus deductions remboursements",cat:"aides",t:"5 min",dif:"Moyen",bg:"#FFF7ED",
    qs:[{q:"Tu as deja declare avant ?",c:["Oui chaque annee","Premiere declaration","Je ne sais pas si je dois"]},{q:"Situation familiale ?",c:["Celibataire ou divorce","Marie ou pacse","Parent seul avec enfants","Veuf ou veuve"]},{q:"Elements particuliers cette annee ?",c:["Non juste un salaire","Frais pro dons garde enfants","Revenus fonciers ou capitaux","Activite independante"]}],
    montant:"Variable souvent un remboursement si bien remplie",
@@ -332,7 +376,7 @@ var D=[
    dts:[{i:"&#128118;",t:"Credit impot garde enfants",b:"50% des frais",u:"https://www.impots.gouv.fr"},{i:"&#127968;",t:"MaPrimeRenov travaux",b:"Selon revenus",u:"https://www.maprimerenov.gouv.fr"},{i:"&#128157;",t:"Reduction dons associations",b:"66 a 75%",u:"https://www.impots.gouv.fr"}],
    prt:[{i:"&#128202;",n:"Indy Comptabilite",d:"Aide a declarer revenus auto-entrepreneur",c:"Essai gratuit",u:"https://www.indy.fr"},{i:"&#9878;",n:"Legalstart",d:"Expert fiscal repond a tes questions",c:"Consulter",u:"https://www.legalstart.fr"}],
    lien:"https://www.impots.gouv.fr"},
-
+ 
   {id:"micro",ico:"&#129534;",name:"Creer son auto-entreprise",desc:"Micro-entrepreneur SIRET URSSAF",cat:"ent",t:"5 min",dif:"Moyen",bg:"#ECFDF5",
    qs:[{q:"Type d activite ?",c:["Services informatique conseil redaction","Artisanat coiffure plomberie cuisine","Commerce vente produits","Liberal coach formateur"]},{q:"Tu es deja salarie ?",c:["Non sans emploi","Oui je veux cumuler","Etudiant","Retraite"]},{q:"Tu as un nom de projet ?",c:["Oui j ai un nom","Non pas encore","Je veux juste voir comment ca marche"]}],
    montant:"0 euro de creation cotisations a partir de 12%",
@@ -343,7 +387,7 @@ var D=[
    dts:[{i:"&#128176;",t:"ACRE exoneration cotisations 1 an",b:"50% pendant 1 an",u:"https://www.urssaf.fr"},{i:"&#127891;",t:"ARCE capital chomage en 2 fois",b:"60% des droits ARE",u:"https://www.pole-emploi.fr"},{i:"&#127970;",t:"Pret honneur ADIE",b:"Jusqu a 12 000 euros a 0%",u:"https://www.adie.org"}],
    prt:[{i:"&#127970;",n:"Shine Compte Pro",d:"Compte bancaire pro gratuit auto-entrepreneurs",c:"1 mois offert",u:"https://www.shine.fr"},{i:"&#128202;",n:"Indy",d:"Comptabilite automatique micro-entrepreneurs",c:"Essai gratuit",u:"https://www.indy.fr"}],
    lien:"https://www.autoentrepreneur.urssaf.fr"},
-
+ 
   {id:"logement",ico:"&#127962;",name:"Logement social HLM",desc:"Demande numero unique file attente",cat:"log",t:"4 min",dif:"Moyen",bg:"#FDF2F8",
    qs:[{q:"C est ta premiere demande ?",c:["Oui premiere fois","Non je renouvelle","J ai un numero mais ai demenage"]},{q:"Situation familiale ?",c:["Seul sans enfants","En couple sans enfants","Famille 1 ou 2 enfants","Famille 3 enfants ou plus"]},{q:"Logement actuel ?",c:["Je loue dans le prive","Heberge chez quelqu un","Logement urgence","Autre"]}],
    montant:"Loyer 20 a 40% moins cher que le marche prive",
@@ -354,7 +398,7 @@ var D=[
    dts:[{i:"&#127968;",t:"APL aide au logement",b:"Jusqu a 340 euros mois",u:"https://www.caf.fr"},{i:"&#9889;",t:"Cheque energie",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127959;",t:"MaPrimeRenov travaux",b:"Selon revenus",u:"https://www.maprimerenov.gouv.fr"}],
    prt:[{i:"&#127968;",n:"SeLoger",d:"Logement prive en attendant le HLM",c:"Chercher",u:"https://www.seloger.com"},{i:"&#128182;",n:"Action Logement",d:"Aide aux salaries pour le logement",c:"Voir aides",u:"https://www.actionlogement.fr"}],
    lien:"https://www.demande-logement-social.gouv.fr"},
-
+ 
   {id:"cmu",ico:"&#127973;",name:"Complementaire sante solidaire",desc:"CSS anciennement CMU-C",cat:"aides",t:"2 min",dif:"Facile",bg:"#FEF2F2",
    qs:[{q:"Tu as une mutuelle ?",c:["Non aucune","Oui trop chere","Oui via employeur","Je ne sais pas"]},{q:"Tu beneficies d une aide ?",c:["Je touche le RSA","J ai l APL ou aides CAF","Aucune aide","Demandeur asile"]}],
    montant:"Gratuite ou moins de 1 euro par jour",
@@ -365,7 +409,7 @@ var D=[
    dts:[{i:"&#128065;",t:"Lunettes prise en charge 100%",b:"Avec CSS",u:"https://www.ameli.fr"},{i:"&#129463;",t:"Soins dentaires rembourses",b:"Avec CSS",u:"https://www.ameli.fr"},{i:"&#128138;",t:"Medicaments sans avance",b:"Tiers payant",u:"https://www.ameli.fr"}],
    prt:[{i:"&#127973;",n:"Alan Sante",d:"Mutuelle en ligne si tu repasses au-dessus",c:"Simuler",u:"https://alan.com"},{i:"&#128138;",n:"Doctolib",d:"Consulte en ligne rembourse avec CSS",c:"Prendre RDV",u:"https://www.doctolib.fr"}],
    lien:"https://www.ameli.fr"},
-
+ 
   {id:"naissance",ico:"&#128118;",name:"Acte de naissance",desc:"Copie integrale demande officielle",cat:"docs",t:"2 min",dif:"Facile",bg:"#FDF2F8",
    qs:[{q:"Pour quelle raison ?",c:["Renouvellement CNI ou passeport","Mariage ou Pacs","Dossier emploi ou banque","Naturalisation ou visa"]},{q:"La naissance a eu lieu ou ?",c:["En France metropolitaine","En DOM-TOM","A l etranger parents francais"]}],
    montant:"Gratuit",
@@ -376,7 +420,7 @@ var D=[
    dts:[{i:"&#129330;",t:"Carte identite avec acte naissance",b:"Gratuite",u:"https://predemande.ants.gouv.fr"},{i:"&#9992;",t:"Passeport biometrique",b:"86 euros",u:"https://www.service-public.fr"},{i:"&#128336;",t:"Acte mariage ou PACS",b:"Gratuit",u:"https://www.service-public.fr"}],
    prt:[{i:"&#9992;",n:"Booking.com",d:"Prepare ton voyage une fois tes docs prets",c:"Chercher",u:"https://www.booking.com"},{i:"&#129330;",n:"ANTS",d:"Tous tes titres officiels en un endroit",c:"Acceder",u:"https://ants.gouv.fr"}],
    lien:"https://www.service-public.fr"},
-
+ 
   {id:"permis",ico:"&#128664;",name:"Permis de conduire",desc:"Remplacement perte duplicata",cat:"docs",t:"2 min",dif:"Facile",bg:"#ECFEFF",
    qs:[{q:"Pour quelle raison ?",c:["Mon permis est perdu","Mon permis a ete vole","Permis abime illisible","Changement adresse"]},{q:"Tu habites en France ?",c:["Oui metropolitaine","Oui DOM-TOM","Non je suis a l etranger"]}],
    montant:"Gratuit sauf perte ou vol : 25 euros",
@@ -387,7 +431,7 @@ var D=[
    dts:[{i:"&#128737;",t:"Compare assurances auto",b:"Economise",u:"https://www.lelynx.fr"},{i:"&#128665;",t:"Code de la route en ligne",b:"Gratuit",u:"https://www.securite-routiere.gouv.fr"},{i:"&#128664;",t:"Controle technique vehicule",b:"Selon age vehicule",u:"https://www.service-public.fr"}],
    prt:[{i:"&#128737;",n:"LeLynx Assurance",d:"Compare assurances auto economise jusqu a 40%",c:"Comparer",u:"https://www.lelynx.fr"},{i:"&#128664;",n:"Auto-Ecole.net",d:"Trouve une auto-ecole pour reprendre le code",c:"Chercher",u:"https://www.auto-ecole.net"}],
    lien:"https://permisdeconduire.ants.gouv.fr"},
-
+ 
   {id:"divorce",ico:"&#9878;",name:"Divorce a l amiable",desc:"Procedure par consentement mutuel",cat:"ent",t:"5 min",dif:"Moyen",bg:"#F9FAFB",
    qs:[{q:"Vous etes d accord sur tout ?",c:["Oui accord total","Accord sur l essentiel","Non des desaccords importants"]},{q:"Vous avez des enfants mineurs ?",c:["Non pas d enfants","Oui 1 enfant","Oui 2 enfants ou plus"]},{q:"Des biens immobiliers communs ?",c:["Non aucun bien","Oui un appartement","Oui plusieurs biens"]}],
    montant:"1500 a 2500 euros honoraires avocats sans tribunal",
@@ -399,11 +443,11 @@ var D=[
    prt:[{i:"&#9878;",n:"Legalstart",d:"Avocat divorce rapide en ligne",c:"Consulter",u:"https://www.legalstart.fr"},{i:"&#127968;",n:"SeLoger",d:"Trouve ton logement apres la separation",c:"Chercher",u:"https://www.seloger.com"}],
    lien:"https://www.service-public.fr"}
 ];
-
+ 
 var cur=null,stp=0,ans=[],typ=false;
 var dos=[];try{dos=JSON.parse(localStorage.getItem("dmia3")||"[]");}catch(e){}
 var curcat="all";
-
+ 
 function rh(f,c){
   f=f||"";c=c||curcat;
   var data=D.filter(function(d){return (c==="all"||d.cat===c)&&(!f||d.name.toLowerCase().includes(f.toLowerCase())||d.desc.toLowerCase().includes(f.toLowerCase()));});
@@ -412,7 +456,7 @@ function rh(f,c){
 }
 function fcat(c,btn){curcat=c;document.querySelectorAll(".cat").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");rh(document.getElementById("srch").value,c);}
 function filt(v){rh(v,curcat);}
-
+ 
 function go(id){
   var d=D.find(function(x){return x.id===id;});if(!d)return;
   cur=d;stp=0;ans=[];
@@ -474,7 +518,7 @@ async function sm(){
 function hk(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sm();}}
 function ar(el){el.style.height="auto";el.style.height=Math.min(el.scrollHeight,85)+"px";}
 function pg(p){document.getElementById("pf").style.width=p+"%";document.getElementById("pt").textContent=p+"%";}
-
+ 
 function res(){
   pg(100);var d=cur;
   sd(d.name,d.ico,d.id);
@@ -488,16 +532,16 @@ function res(){
 }
 function tc(i){var c=document.getElementById("cb"+i);c.classList.toggle("on");c.textContent=c.classList.contains("on")?"&#10003;":"";}
 function snl(){var e=document.getElementById("nle").value;if(!e||!e.includes("@")){alert("Entre un email valide.");return;}document.querySelector(".nlbox").innerHTML="<div style=\"text-align:center;padding:.5rem;color:#fff\"><div style=\"font-size:1.5rem\">&#127881;</div><div style=\"font-weight:700;margin:.28rem 0\">Noted!</div><div style=\"opacity:.7;font-size:.77rem\">Rappels sur "+e+"</div></div>";}
-
+ 
 function sd(name,ico,id){var d={ts:Date.now(),name:name,ico:ico,id:id,date:new Date().toLocaleDateString("fr-FR")};dos.unshift(d);if(dos.length>30)dos=dos.slice(0,30);try{localStorage.setItem("dmia3",JSON.stringify(dos));}catch(e){}}
 function rd(){
   var el=document.getElementById("dl");if(!el)return;
   if(!dos.length){el.innerHTML="<div style=\"text-align:center;padding:3rem 1rem\"><div style=\"font-size:2.5rem;margin-bottom:.7rem\">&#128193;</div><div style=\"font-weight:700;margin-bottom:.38rem\">Aucun dossier</div><div style=\"font-size:.78rem;color:var(--mu)\">Fais une demarche et elle apparait ici.</div><button class=\"btnp\" style=\"margin-top:1rem;padding:.6rem 1.5rem;font-size:.78rem;width:auto\" onclick=\"sw('home')\">Commencer</button></div>";return;}
   el.innerHTML=dos.map(function(d){return "<div style=\"background:var(--wh);border:1px solid var(--brd);border-radius:12px;padding:.85rem .95rem;margin-bottom:.55rem;display:flex;align-items:center;gap:.75rem;box-shadow:var(--sh);cursor:pointer\" onclick=\"go('"+d.id+"')\"><div style=\"font-size:1.35rem\">"+d.ico+"</div><div style=\"flex:1\"><div style=\"font-size:.83rem;font-weight:700\">"+d.name+"</div><div style=\"font-size:.69rem;color:var(--mu)\">Consulte le "+d.date+"</div></div><div style=\"font-size:.63rem;font-weight:600;color:var(--gn);background:var(--gl);padding:.18rem .48rem;border-radius:7px\">Termine</div></div>";}).join("");}
-
+ 
 function tg(row){var t=row.querySelector(".tgl");if(!t)return;t.classList.toggle("on");t.classList.toggle("off");}
 function cd(){if(confirm("Supprimer tout l historique ?")){dos=[];try{localStorage.removeItem("dmia3");}catch(e){}alert("Donnees supprimees.");}}
-
+ 
 function sw(tab){
   var map={home:"home",dems:"home",dossiers:"dossiers",params:"params"};
   sp(map[tab]||"home");
@@ -510,8 +554,103 @@ function sp(id){
   document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active");});
   var el=document.getElementById("pg-"+id);if(el)el.classList.add("active");
 }
-
+ 
 rh();
+ 
+var SIDE_PUBS = [
+  {ico:"&#127970;",grad:"linear-gradient(135deg,#059669,#10B981)",title:"BoursoBank",sub:"BoursoBank - banque gratuite",btn:"Ouvrir mon compte",u:"https://bour.so/p/6BOlHSuKEdj"},
+  {ico:"&#127970;",grad:"linear-gradient(135deg,#0891B2,#06B6D4)",title:"Shine Compte Pro",sub:"Le compte ideal pour auto-entrepreneurs",btn:"1 mois offert",u:"https://www.shine.fr"},
+  {ico:"&#9889;",grad:"linear-gradient(135deg,#D97706,#F59E0B)",title:"Hellio Energie",sub:"Reduisez vos factures avec les aides Etat",btn:"Simulation gratuite",u:"https://www.hellio.com"},
+  {ico:"&#128737;",grad:"linear-gradient(135deg,#DC2626,#EF4444)",title:"LeLynx Assurance",sub:"Economisez jusqu a 40% sur votre assurance",btn:"Comparer maintenant",u:"https://www.lelynx.fr"}
+];
+var SIDE_PUBS2 = [
+  {ico:"&#127891;",grad:"linear-gradient(135deg,#1D4ED8,#7C3AED)",title:"Shein",sub:"Jusqu a -80% sur la mode",btn:"Profiter du code",u:"https://www.shein.com/discount/D6VKV"},
+  {ico:"&#127973;",grad:"linear-gradient(135deg,#DC2626,#F87171)",title:"Alan Mutuelle",sub:"Mutuelle sante moderne sans engagement",btn:"Simuler mon prix",u:"https://alan.com"},
+  {ico:"&#128202;",grad:"linear-gradient(135deg,#7C3AED,#A78BFA)",title:"Indy Compta",sub:"Comptabilite auto pour independants",btn:"Essai gratuit",u:"https://www.indy.fr"},
+  {ico:"&#9878;",grad:"linear-gradient(135deg,#475569,#94A3B8)",title:"Legalstart",sub:"Avocat en ligne pour vos demarches",btn:"Consulter",u:"https://www.legalstart.fr"}
+];
+var si=0,si2=0;
+function rotateSide(){
+  var p=SIDE_PUBS[si%SIDE_PUBS.length];
+  var p2=SIDE_PUBS2[si2%SIDE_PUBS2.length];
+  var el=document.getElementById("spub-left");
+  var el2=document.getElementById("spub-right");
+  if(el&&el.style.display!=="none"){
+    el.querySelector(".side-pub-img").style.background=p.grad;
+    el.querySelector(".side-pub-img-ico").innerHTML=p.ico;
+    el.querySelector(".side-pub-title").textContent=p.title;
+    el.querySelector(".side-pub-sub").textContent=p.sub;
+    var a=el.querySelector(".side-pub-btn");
+    a.textContent=p.btn+" >";
+    a.href=p.u;
+    a.style.background=p.grad;
+  }
+  if(el2&&el2.style.display!=="none"){
+    el2.querySelector(".side-pub-img").style.background=p2.grad;
+    el2.querySelector(".side-pub-img-ico").innerHTML=p2.ico;
+    el2.querySelector(".side-pub-title").textContent=p2.title;
+    el2.querySelector(".side-pub-sub").textContent=p2.sub;
+    var a2=el2.querySelector(".side-pub-btn");
+    a2.textContent=p2.btn+" >";
+    a2.href=p2.u;
+    a2.style.background=p2.grad;
+  }
+  si++;si2++;
+}
+setInterval(rotateSide,10000);
+ 
+ 
+// ROTATING PUB BANNER
+var PUBS = [
+  {ico:"&#127970;", label:"Partenaire", title:"BoursoBank", sub:"Compte gratuit + recevez vos aides CAF dessus", cta:"Gratuit", u:"https://bour.so/p/6BOlHSuKEdj"},
+  {ico:"&#127970;", label:"Partenaire", title:"Shine Compte Pro", sub:"Le compte ideal pour auto-entrepreneurs", cta:"1 mois offert", u:"https://www.shine.fr"},
+  {ico:"&#127891;", label:"Partenaire", title:"Shein", sub:"Formations financees par Pole Emploi", cta:"Voir", u:"https://www.shein.com/discount/D6VKV"},
+  {ico:"&#127973;", label:"Partenaire", title:"Alan Mutuelle", sub:"Mutuelle sante en ligne sans engagement", cta:"Simuler", u:"https://alan.com"},
+  {ico:"&#9889;", label:"Partenaire", title:"Hellio Energie", sub:"Reduisez vos factures avec les aides Etat", cta:"Gratuit", u:"https://www.hellio.com"},
+  {ico:"&#128737;", label:"Partenaire", title:"LeLynx Assurance", sub:"Comparez et economisez sur votre assurance", cta:"Comparer", u:"https://www.lelynx.fr"},
+  {ico:"&#128202;", label:"Partenaire", title:"Indy Comptabilite", sub:"Comptabilite automatique auto-entrepreneurs", cta:"Essai gratuit", u:"https://www.indy.fr"},
+  {ico:"&#9878;", label:"Partenaire", title:"Legalstart", sub:"Avocat en ligne pour vos demarches juridiques", cta:"Consulter", u:"https://www.legalstart.fr"}
+];
+var pubIdx = 0;
+function renderPub() {
+  var els = document.querySelectorAll(".pub-banner-wrap");
+  if (!els.length) return;
+  var p = PUBS[pubIdx % PUBS.length];
+  var html2 = "<div class=\"pub-banner-wrap\"><a class=\"pub-card\" href=\"" + p.u + "\" target=\"_blank\" rel=\"noopener sponsored\"><div class=\"pub-card-ico\">" + p.ico + "</div><div style=\"flex:1\"><div class=\"pub-card-label\">" + p.label + "</div><div class=\"pub-card-title\">" + p.title + "</div><div class=\"pub-card-sub\">" + p.sub + "</div></div><div class=\"pub-card-cta\">" + p.cta + " &#8594;</div></a></div>";
+  els.forEach(function(el){el.outerHTML = html2;});
+  pubIdx++;
+}
+setInterval(renderPub, 8000);
+ 
+renderPub();
 </script>
-
-</body></html>
+ 
+<!-- PUB GAUCHE -->
+<div class="side-pub side-pub-left" id="spub-left">
+  <button class="side-pub-close" onclick="document.getElementById('spub-left').style.display='none'">&#10005;</button>
+  <div class="side-pub-img" style="background:linear-gradient(135deg,#059669,#10B981)">
+    <div class="side-pub-img-ico">&#127970;</div>
+  </div>
+  <div class="side-pub-body">
+    <div class="side-pub-label">Partenaire</div>
+    <div class="side-pub-title">BoursoBank</div>
+    <div class="side-pub-sub">La banque la moins chere - 8M de clients</div>
+    <a class="side-pub-btn" href="https://bour.so/p/6BOlHSuKEdj" target="_blank" rel="noopener sponsored" style="background:linear-gradient(135deg,#059669,#10B981)">Ouvrir mon compte &#8594;</a>
+  </div>
+</div>
+ 
+<!-- PUB DROITE -->
+<div class="side-pub side-pub-right" id="spub-right">
+  <button class="side-pub-close" onclick="document.getElementById('spub-right').style.display='none'">&#10005;</button>
+  <div class="side-pub-img" style="background:linear-gradient(135deg,#1D4ED8,#7C3AED)">
+    <div class="side-pub-img-ico">&#127891;</div>
+  </div>
+  <div class="side-pub-body">
+    <div class="side-pub-label">Partenaire</div>
+    <div class="side-pub-title">Shein</div>
+    <div class="side-pub-sub">Code promo D6VKV - livraison offerte</div>
+    <a class="side-pub-btn" href="https://www.shein.com/discount/D6VKV" target="_blank" rel="noopener sponsored" style="background:linear-gradient(135deg,#1D4ED8,#7C3AED)">Profiter du code &#8594;</a>
+  </div>
+</div>
+</body>
+</html>
