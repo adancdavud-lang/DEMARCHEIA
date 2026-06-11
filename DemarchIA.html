@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)file:///C:/Users/Adanc/Downloads/demarches-ia_3.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DemarchIA</title>
+<link href="./DemarchIA_files/css2" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bl:#1D4ED8;--pu:#6D28D9;--gr:linear-gradient(135deg,#1D4ED8,#6D28D9);
+  --bg:#F5F7FF;--wh:#fff;--sur:#ECEEF5;--brd:#DDE1EE;
+  --tx:#0D1321;--mu:#5A6680;--di:#9BA5BC;
+  --gl:#ECFDF5;--gn:#047857;--gm:#A7F3D0;
+  --ol:#FFF7ED;--or:#C2410C;--rd:#B91C1C;
+  --bl2:#EEF2FF;--bm:#C7D7FD;
+  --sh:0 2px 12px rgba(13,19,33,.07);
+  --sh2:0 8px 24px rgba(13,19,33,.12);
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:.85rem 1.2rem;background:var(--wh);border-bottom:1px solid var(--brd);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.05);}
+.logo{font-weight:800;font-size:1.1rem;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.bgs{display:flex;gap:.4rem;}
+.bg{font-size:.62rem;font-weight:600;padding:.22rem .55rem;border-radius:20px;}
+.bgr{background:var(--gl);color:var(--gn);border:1px solid var(--gm);}
+.bgb{background:var(--bl2);color:var(--bl);border:1px solid var(--bm);}
+.page{display:none;}.page.active{display:block;}
+.wrap{max-width:500px;margin:0 auto;padding:1.4rem 1.1rem 6rem;}
+/* HERO */
+.hero{background:var(--gr);border-radius:18px;padding:1.5rem;margin-bottom:1.3rem;color:#fff;position:relative;overflow:hidden;}
+.hero::after{content:"🏛";position:absolute;right:-8px;bottom:-14px;font-size:5rem;opacity:.1;}
+.htag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:.45rem;}
+.htitle{font-size:1.35rem;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:.45rem;}
+.hsub{font-size:.78rem;opacity:.75;line-height:1.55;}
+.hstats{display:flex;gap:.7rem;margin-top:1rem;}
+.hs{background:rgba(255,255,255,.15);border-radius:8px;padding:.38rem .65rem;text-align:center;}
+.hsv{font-size:.9rem;font-weight:800;}
+.hsl{font-size:.56rem;opacity:.7;margin-top:.1rem;}
+/* SEARCH */
+.sb{position:relative;margin-bottom:.9rem;}
+.si{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);color:var(--di);}
+.sinput{width:100%;background:var(--wh);border:1.5px solid var(--brd);border-radius:12px;padding:.68rem 1rem .68rem 2.4rem;font-family:'Inter',sans-serif;font-size:.86rem;outline:none;transition:border .2s;box-shadow:var(--sh);}
+.sinput:focus{border-color:var(--bl);}
+.sinput::placeholder{color:var(--di);}
+/* CATS */
+.cats{display:flex;gap:.35rem;margin-bottom:.9rem;overflow-x:auto;padding-bottom:.2rem;}
+.cats::-webkit-scrollbar{display:none;}
+.cat{background:var(--wh);border:1.5px solid var(--brd);border-radius:20px;padding:.32rem .8rem;font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;color:var(--mu);cursor:pointer;white-space:nowrap;transition:all .15s;}
+.cat.on,.cat:hover{background:var(--bl2);border-color:var(--bm);color:var(--bl);}
+.sh{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.65rem;}
+/* DEM LIST */
+.dlist{display:flex;flex-direction:column;gap:.5rem;}
+.drow{background:var(--wh);border:1.5px solid var(--brd);border-radius:14px;padding:.9rem 1rem;cursor:pointer;transition:all .18s;display:flex;align-items:center;gap:.8rem;box-shadow:var(--sh);}
+.drow:hover{border-color:var(--bl);transform:translateX(2px);box-shadow:var(--sh2);}
+.dico{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;flex-shrink:0;}
+.dname{font-size:.86rem;font-weight:700;}
+.ddesc{font-size:.7rem;color:var(--mu);margin-top:.12rem;}
+.dmeta{display:flex;gap:.35rem;margin-top:.3rem;}
+.dtime{font-size:.6rem;color:var(--mu);background:var(--sur);padding:.13rem .42rem;border-radius:5px;}
+.ddiff{font-size:.6rem;font-weight:600;padding:.13rem .42rem;border-radius:5px;}
+.easy{background:var(--gl);color:var(--gn);}
+.med{background:var(--ol);color:var(--or);}
+/* CHAT */
+.cwrap{max-width:500px;margin:0 auto;display:flex;flex-direction:column;height:calc(100vh - 57px);}
+.chead{padding:.85rem 1.1rem;background:var(--wh);border-bottom:1px solid var(--brd);flex-shrink:0;}
+.cheadt{display:flex;align-items:center;gap:.65rem;margin-bottom:.55rem;}
+.bkbtn{background:var(--sur);border:1px solid var(--brd);border-radius:8px;padding:.35rem .6rem;font-size:.71rem;color:var(--mu);cursor:pointer;font-family:'Inter',sans-serif;}
+.cico{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.88rem;}
+.cname{font-weight:700;font-size:.86rem;}
+.csub{font-size:.67rem;color:var(--mu);}
+.prow{display:flex;align-items:center;gap:.55rem;}
+.pbar{flex:1;height:5px;background:var(--sur);border-radius:3px;overflow:hidden;}
+.pfill{height:100%;background:var(--gr);border-radius:3px;transition:width .4s ease;}
+.ptxt{font-size:.66rem;color:var(--mu);font-weight:600;width:26px;text-align:right;}
+.msgs{flex:1;overflow-y:auto;padding:.9rem 1.1rem;display:flex;flex-direction:column;gap:.65rem;}
+.msgs::-webkit-scrollbar{width:3px;}
+.msgs::-webkit-scrollbar-thumb{background:var(--brd);}
+.msg{display:flex;gap:.5rem;animation:fu .2s ease;}
+@keyframes fu{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+.av{width:26px;height:26px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.78rem;margin-top:2px;}
+.avb{background:var(--gr);}
+.avu{background:var(--sur);border:1px solid var(--brd);}
+.bbl{max-width:87%;padding:.65rem .82rem;font-size:.82rem;line-height:1.6;}
+.bblb{background:var(--wh);border:1px solid var(--brd);border-radius:4px 12px 12px 12px;box-shadow:var(--sh);color:var(--tx);}
+.bblu{background:var(--bl);color:#fff;border-radius:12px 4px 12px 12px;}
+.msg.usr{flex-direction:row-reverse;}
+.chcs{display:flex;flex-direction:column;gap:.38rem;padding-left:2rem;}
+.chc{background:var(--wh);border:1.5px solid var(--brd);border-radius:9px;padding:.55rem .85rem;font-family:'Inter',sans-serif;font-size:.79rem;font-weight:500;color:var(--tx);cursor:pointer;transition:all .15s;text-align:left;}
+.chc:hover{border-color:var(--bl);background:var(--bl2);color:var(--bl);}
+.dots{display:flex;gap:3px;align-items:center;}
+.dots span{width:5px;height:5px;border-radius:50%;background:var(--di);animation:bo .8s infinite;}
+.dots span:nth-child(2){animation-delay:.15s;}
+.dots span:nth-child(3){animation-delay:.3s;}
+@keyframes bo{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-5px)}}
+.iarea{padding:.65rem 1.1rem .85rem;background:var(--wh);border-top:1px solid var(--brd);flex-shrink:0;display:flex;gap:.45rem;align-items:flex-end;}
+.cta{flex:1;background:var(--sur);border:1.5px solid var(--brd);border-radius:10px;padding:.58rem .8rem;font-family:'Inter',sans-serif;font-size:.83rem;color:var(--tx);outline:none;resize:none;max-height:85px;transition:border .2s;}
+.cta:focus{border-color:var(--bl);background:var(--wh);}
+.cta::placeholder{color:var(--di);}
+.sbtn{width:36px;height:36px;border-radius:10px;border:none;background:var(--gr);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;}
+/* RESULT */
+.rwrap{max-width:500px;margin:0 auto;padding:1.1rem 1.1rem 6rem;}
+.rhero{background:var(--gr);border-radius:16px;padding:1.3rem;color:#fff;text-align:center;margin-bottom:.9rem;}
+.blk{background:var(--wh);border:1px solid var(--brd);border-radius:14px;overflow:hidden;margin-bottom:.85rem;box-shadow:var(--sh);}
+.blkh{padding:.7rem .95rem;border-bottom:1px solid var(--brd);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mu);}
+.docr{display:flex;align-items:center;gap:.7rem;padding:.75rem .95rem;border-bottom:1px solid var(--brd);}
+.docr:last-child{border-bottom:none;}
+.docn{font-size:.8rem;font-weight:600;}
+.docd{font-size:.69rem;color:var(--mu);margin-top:.1rem;}
+.opt{font-size:.58rem;font-weight:600;color:var(--or);background:var(--ol);padding:.1rem .38rem;border-radius:4px;margin-top:.18rem;display:inline-block;}
+.cb{margin-left:auto;width:19px;height:19px;border:2px solid var(--brd);border-radius:4px;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;transition:all .15s;}
+.cb.on{background:var(--gn);border-color:var(--gn);color:#fff;}
+.stepr{display:flex;gap:.75rem;padding:.8rem .95rem;border-bottom:1px solid var(--brd);}
+.stepr:last-child{border-bottom:none;}
+.stepn{width:22px;height:22px;border-radius:50%;background:var(--gr);color:#fff;font-size:.62rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.stept{font-size:.8rem;font-weight:700;}
+.stepd{font-size:.71rem;color:var(--mu);margin-top:.18rem;line-height:1.45;}
+.stepl{font-size:.7rem;color:var(--bl);font-weight:600;text-decoration:none;display:inline-block;margin-top:.28rem;}
+.mbox{padding:.95rem;text-align:center;}
+.mv{font-size:1.4rem;font-weight:800;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ms{font-size:.69rem;color:var(--mu);margin-top:.28rem;}
+.alrt{padding:.8rem .95rem;display:flex;gap:.55rem;font-size:.77rem;line-height:1.5;}
+.ai{background:var(--bl2);}
+.aw{background:var(--ol);}
+.aok{background:var(--gl);}
+.partr{display:flex;align-items:center;gap:.7rem;padding:.8rem .95rem;border-bottom:1px solid var(--brd);text-decoration:none;transition:background .12s;}
+.partr:last-child{border-bottom:none;}
+.partr:hover{background:var(--bl2);}
+.pn{font-size:.8rem;font-weight:700;color:var(--tx);}
+.pd{font-size:.69rem;color:var(--mu);margin-top:.1rem;}
+.pc{margin-left:auto;font-size:.68rem;font-weight:700;color:var(--bl);background:var(--bl2);padding:.22rem .55rem;border-radius:7px;white-space:nowrap;flex-shrink:0;}
+.drr{display:flex;align-items:center;gap:.7rem;padding:.72rem .95rem;border-bottom:1px solid var(--brd);text-decoration:none;transition:background .12s;}
+.drr:last-child{border-bottom:none;}
+.drr:hover{background:var(--gl);}
+.drb{margin-left:auto;font-size:.61rem;font-weight:700;color:var(--gn);background:var(--gl);padding:.18rem .48rem;border-radius:7px;white-space:nowrap;flex-shrink:0;border:1px solid var(--gm);}
+.nlbox{background:linear-gradient(135deg,#1e3a5f,#2d1b69);border-radius:14px;padding:1.1rem;color:#fff;margin-bottom:.85rem;}
+.nlr{display:flex;gap:.38rem;margin-top:.75rem;}
+.nli{flex:1;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:.48rem .75rem;color:#fff;font-family:'Inter',sans-serif;font-size:.78rem;outline:none;}
+.nli::placeholder{opacity:.5;}
+.nlb{background:#fff;color:#1e3a5f;border:none;border-radius:8px;padding:.48rem .85rem;font-family:'Inter',sans-serif;font-size:.74rem;font-weight:700;cursor:pointer;white-space:nowrap;}
+.btnp{background:var(--gr);color:#fff;border:none;border-radius:12px;padding:.78rem;font-family:'Inter',sans-serif;font-size:.84rem;font-weight:700;cursor:pointer;text-align:center;width:100%;margin-bottom:.5rem;}
+.btns{background:var(--wh);color:var(--tx);border:1.5px solid var(--brd);border-radius:12px;padding:.78rem;font-family:'Inter',sans-serif;font-size:.81rem;font-weight:500;cursor:pointer;text-align:center;width:100%;}
+.disc{font-size:.63rem;color:var(--di);text-align:center;line-height:1.5;padding:.5rem .95rem 1rem;}
+/* SETTINGS */
+.slbl{font-size:.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mu);margin-bottom:.45rem;}
+.sblk{background:var(--wh);border:1px solid var(--brd);border-radius:14px;overflow:hidden;box-shadow:var(--sh);margin-bottom:1.1rem;}
+.srow{display:flex;align-items:center;justify-content:space-between;padding:.8rem .95rem;border-bottom:1px solid var(--brd);cursor:pointer;}
+.srow:last-child{border-bottom:none;}
+.stit{font-size:.81rem;font-weight:600;}
+.ssub{font-size:.68rem;color:var(--mu);margin-top:.1rem;}
+.tgl{width:38px;height:21px;border-radius:11px;position:relative;flex-shrink:0;cursor:pointer;}
+.tgld{width:17px;height:17px;background:#fff;border-radius:50%;position:absolute;top:2px;transition:all .2s;}
+.tgl.on{background:var(--gr);}.tgl.on .tgld{right:2px;left:auto;}
+.tgl.off{background:var(--brd);}.tgl.off .tgld{left:2px;right:auto;}
+/* BNAV */
+.bnav{position:fixed;bottom:0;left:0;right:0;background:var(--wh);border-top:1px solid var(--brd);display:flex;padding:.38rem 0 .65rem;z-index:50;}
+.bni{flex:1;display:flex;flex-direction:column;align-items:center;gap:.16rem;cursor:pointer;padding:.22rem 0;}
+.bnico{font-size:1.1rem;}
+.bnilb{font-size:.55rem;font-weight:500;color:var(--mu);}
+.bni.on .bnilb{color:var(--bl);font-weight:700;}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">DemarchIA</div>
+  <div class="bgs">
+    <span class="bg bgr">Gratuit</span>
+    <span class="bg bgb">Securise</span>
+  </div>
+</nav>
+
+<div class="page active" id="pg-home">
+<div class="wrap">
+  <div class="hero">
+    <div class="htag">Assistant administratif IA</div>
+    <div class="htitle">Tes demarches admin,<br>enfin simples.</div>
+    <div class="hsub">Je te guide etape par etape. Zero jargon. Zero prise de tete.</div>
+    <div class="hstats">
+      <div class="hs"><div class="hsv">2 min</div><div class="hsl">par dossier</div></div>
+      <div class="hs"><div class="hsv">12</div><div class="hsl">demarches</div></div>
+      <div class="hs"><div class="hsv">100%</div><div class="hsl">gratuit</div></div>
+    </div>
+  </div>
+  <div class="sb">
+    <span class="si">🔍</span>
+    <input class="sinput" type="text" id="srch" placeholder="APL, RSA, carte grise, impots..." oninput="filt(this.value)">
+  </div>
+  <div class="cats" id="cats">
+    <button class="cat on" onclick="fcat(&#39;all&#39;,this)">Tout</button>
+    <button class="cat" onclick="fcat(&#39;aides&#39;,this)">Aides</button>
+    <button class="cat" onclick="fcat(&#39;emploi&#39;,this)">Emploi</button>
+    <button class="cat" onclick="fcat(&#39;docs&#39;,this)">Documents</button>
+    <button class="cat" onclick="fcat(&#39;log&#39;,this)">Logement</button>
+    <button class="cat" onclick="fcat(&#39;ent&#39;,this)">Entreprise</button>
+  </div>
+  <div class="sh" id="cnt">12 demarches disponibles</div>
+  <div class="dlist" id="dlist"><div class="drow" onclick="go(&#39;apl&#39;)"><div class="dico" style="background:#EEF2FF">🏠</div><div style="flex:1"><div class="dname">Demande d APL</div><div class="ddesc">Aide au logement CAF</div><div class="dmeta"><span class="dtime">3 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;rsa&#39;)"><div class="dico" style="background:#ECFDF5">💶</div><div style="flex:1"><div class="dname">Demande de RSA</div><div class="ddesc">Revenu de Solidarite Active</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;chomage&#39;)"><div class="dico" style="background:#F5F3FF">💼</div><div style="flex:1"><div class="dname">Inscription Pole Emploi</div><div class="ddesc">Allocations chomage ARE</div><div class="dmeta"><span class="dtime">3 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;cni&#39;)"><div class="dico" style="background:#EEF2FF">🤲</div><div style="flex:1"><div class="dname">Carte identite</div><div class="ddesc">Renouvellement ou premiere demande</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;carte_grise&#39;)"><div class="dico" style="background:#FFF7ED">🚙</div><div style="flex:1"><div class="dname">Carte grise</div><div class="ddesc">Immatriculation changement proprietaire</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;impots&#39;)"><div class="dico" style="background:#FFF7ED">📊</div><div style="flex:1"><div class="dname">Declaration impots</div><div class="ddesc">Revenus deductions remboursements</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;micro&#39;)"><div class="dico" style="background:#ECFDF5">🧾</div><div style="flex:1"><div class="dname">Creer son auto-entreprise</div><div class="ddesc">Micro-entrepreneur SIRET URSSAF</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;logement&#39;)"><div class="dico" style="background:#FDF2F8">🏚</div><div style="flex:1"><div class="dname">Logement social HLM</div><div class="ddesc">Demande numero unique file attente</div><div class="dmeta"><span class="dtime">4 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;cmu&#39;)"><div class="dico" style="background:#FEF2F2">🏥</div><div style="flex:1"><div class="dname">Complementaire sante solidaire</div><div class="ddesc">CSS anciennement CMU-C</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;naissance&#39;)"><div class="dico" style="background:#FDF2F8">👶</div><div style="flex:1"><div class="dname">Acte de naissance</div><div class="ddesc">Copie integrale demande officielle</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;permis&#39;)"><div class="dico" style="background:#ECFEFF">🚘</div><div style="flex:1"><div class="dname">Permis de conduire</div><div class="ddesc">Remplacement perte duplicata</div><div class="dmeta"><span class="dtime">2 min</span><span class="ddiff easy">Facile</span></div></div><div style="color:var(--di)">›</div></div><div class="drow" onclick="go(&#39;divorce&#39;)"><div class="dico" style="background:#F9FAFB">⚖</div><div style="flex:1"><div class="dname">Divorce a l amiable</div><div class="ddesc">Procedure par consentement mutuel</div><div class="dmeta"><span class="dtime">5 min</span><span class="ddiff med">Moyen</span></div></div><div style="color:var(--di)">›</div></div></div>
+</div>
+</div>
+
+<div class="page" id="pg-chat">
+<div class="cwrap">
+  <div class="chead">
+    <div class="cheadt">
+      <button class="bkbtn" onclick="sp(&#39;home&#39;)">Retour</button>
+      <div class="cico" id="cico"></div>
+      <div><div class="cname" id="cname">Demarche</div><div class="csub" id="csub">Assistant IA</div></div>
+    </div>
+    <div class="prow">
+      <div class="pbar"><div class="pfill" id="pf" style="width:0%"></div></div>
+      <div class="ptxt" id="pt">0%</div>
+    </div>
+  </div>
+  <div class="msgs" id="msgs"></div>
+  <div class="iarea">
+    <textarea class="cta" id="ctxt" placeholder="Pose une question..." rows="1" onkeydown="hk(event)" oninput="ar(this)"></textarea>
+    <button class="sbtn" onclick="sm()">➤</button>
+  </div>
+</div>
+</div>
+
+<div class="page" id="pg-result">
+<div class="rwrap" id="rc"></div>
+</div>
+
+<div class="page" id="pg-dossiers">
+<div class="wrap">
+  <div style="font-size:1.2rem;font-weight:800;margin-bottom:.25rem">Mes dossiers</div>
+  <div style="font-size:.77rem;color:var(--mu);margin-bottom:1.1rem">Tes demarches recentes</div>
+  <div id="dl"></div>
+</div>
+</div>
+
+<div class="page" id="pg-params">
+<div class="wrap">
+  <div style="font-size:1.2rem;font-weight:800;margin-bottom:.25rem">Parametres</div>
+  <div style="font-size:.77rem;color:var(--mu);margin-bottom:1.1rem">Ton compte</div>
+  <div class="slbl">Profil</div>
+  <div class="sblk">
+    <div style="padding:.95rem;display:flex;align-items:center;gap:.8rem;border-bottom:1px solid var(--brd)">
+      <div style="width:40px;height:40px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem">?</div>
+      <div><div style="font-weight:700;font-size:.84rem">Non connecte</div><div style="font-size:.69rem;color:var(--mu)">Cree un compte pour sauvegarder</div></div>
+    </div>
+    <div style="padding:.75rem .95rem"><button class="btnp" style="font-size:.78rem;padding:.6rem" onclick="alert(&#39;Bientot disponible!&#39;)">Creer un compte gratuit</button></div>
+  </div>
+  <div class="slbl">Notifications</div>
+  <div class="sblk">
+    <div class="srow" onclick="tg(this)"><div><div class="stit">Rappels renouvellement</div><div class="ssub">CNI, permis, passeport...</div></div><div class="tgl on" onclick="event.stopPropagation();tg(this.parentElement)"><div class="tgld"></div></div></div>
+    <div class="srow" onclick="tg(this)"><div><div class="stit">Nouvelles aides</div><div class="ssub">Si une aide te correspond</div></div><div class="tgl off" onclick="event.stopPropagation();tg(this.parentElement)"><div class="tgld"></div></div></div>
+    <div class="srow" onclick="tg(this)"><div><div class="stit">Delais importants</div><div class="ssub">Declarations, echeances...</div></div><div class="tgl on" onclick="event.stopPropagation();tg(this.parentElement)"><div class="tgld"></div></div></div>
+  </div>
+  <div class="slbl">Confidentialite</div>
+  <div class="sblk">
+    <div class="srow" onclick="cd()"><div><div class="stit" style="color:var(--rd)">Supprimer mes donnees</div><div class="ssub">Efface tout l historique</div></div><span style="color:var(--di)">›</span></div>
+    <div class="srow" onclick="alert(&#39;Aucune donnee personnelle stockee sur nos serveurs.&#39;)"><div><div class="stit">Confidentialite</div><div class="ssub">Aucune donnee vendue</div></div><span style="color:var(--di)">›</span></div>
+    <div class="srow" onclick="alert(&#39;DemarchIA est independant et non affilie a l Etat.&#39;)"><div><div class="stit">Mentions legales</div><div class="ssub">A propos</div></div><span style="color:var(--di)">›</span></div>
+  </div>
+  <div style="text-align:center;font-size:.66rem;color:var(--di);margin-top:1rem">DemarchIA v3.0 - Non affilie a l Etat</div>
+</div>
+</div>
+
+<div class="bnav">
+  <div class="bni on" id="bn-home" onclick="sw(&#39;home&#39;)"><div class="bnico">🏠</div><div class="bnilb">Accueil</div></div>
+  <div class="bni" id="bn-dems" onclick="sw(&#39;home&#39;)"><div class="bnico">📋</div><div class="bnilb">Demarches</div></div>
+  <div class="bni" id="bn-dossiers" onclick="sw(&#39;dossiers&#39;)"><div class="bnico">📁</div><div class="bnilb">Mes dossiers</div></div>
+  <div class="bni" id="bn-params" onclick="sw(&#39;params&#39;)"><div class="bnico">⚙</div><div class="bnilb">Parametres</div></div>
+</div>
+
+<script>
+var D=[
+  {id:"apl",ico:"&#127968;",name:"Demande d APL",desc:"Aide au logement CAF",cat:"log",t:"3 min",dif:"Facile",bg:"#EEF2FF",
+   qs:[{q:"Situation de logement ?",c:["Je loue un appartement","Residence etudiante","Je rembourse un credit","Autre"]},{q:"Situation familiale ?",c:["Seul sans enfant","En couple sans enfant","En couple avec enfants","Parent seul avec enfants"]},{q:"Statut actuel ?",c:["Salarie","Etudiant","Sans emploi ou RSA","Retraite"]},{q:"Loyer mensuel ?",c:["Moins de 400 euros","Entre 400 et 600","Entre 600 et 900","Plus de 900 euros"]}],
+   montant:"50 a 340 euros par mois",
+   docs:[{i:"&#129330;",n:"Piece identite",d:"CNI passeport ou titre de sejour en cours de validite"},{i:"&#128196;",n:"Contrat de bail",d:"Signe par toi ET ton proprietaire obligatoire"},{i:"&#128182;",n:"Justificatif de revenus",d:"Avis imposition ou attestation Pole Emploi"},{i:"&#127968;",n:"Quittance de loyer",d:"Du mois en cours",opt:1}],
+   proc:[{t:"Simule ton droit",d:"Sur caf.fr rubrique Mes droits simulateur APL. Resultat en 2 minutes.",l:"https://www.caf.fr",lt:"Simuler"},{t:"Cree ton espace CAF",d:"Avec ton numero Securite sociale sur ta carte Vitale."},{t:"Depose ta demande",d:"Section Mes demarches Demander APL. Photos de tes documents suffisent."},{t:"Attends la decision",d:"Delai moyen 2 a 4 semaines. APL versee le 5 de chaque mois."}],
+   info:{tp:"ai",tx:"Tu peux faire la demande des la signature du bail. Plus tu attends plus tu perds de mois d aide."},
+   warn:{tp:"aw",tx:"Declare tout changement de situation a la CAF sous 60 jours : demenagement nouveau travail mise en couple."},
+   dts:[{i:"&#9889;",t:"Cheque energie sur tes factures",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127868;",t:"Prime naissance si enfant attendu",b:"Jusqu a 1000 euros",u:"https://www.caf.fr"},{i:"&#128652;",t:"Pass mobilite reductions transports",b:"Selon ta ville",u:"https://www.service-public.fr"}],
+   prt:[{i:"&#127970;",n:"Fortuneo Banque",d:"Compte gratuit en 5 min pour recevoir l APL",c:"Ouvrir",u:"https://www.fortuneo.fr"},{i:"&#9989;",n:"Hellio Energie",d:"Cumule avec les aides energie simulation gratuite",c:"Simuler",u:"https://www.hellio.com"}],
+   lien:"https://www.caf.fr"},
+
+  {id:"rsa",ico:"&#128182;",name:"Demande de RSA",desc:"Revenu de Solidarite Active",cat:"aides",t:"4 min",dif:"Facile",bg:"#ECFDF5",
+   qs:[{q:"Situation professionnelle ?",c:["Sans emploi depuis 1 mois","Travail a temps partiel","En formation ou stage","Je reprends bientot le travail"]},{q:"Enfants a charge ?",c:["Non pas d enfants","Oui 1 enfant","Oui 2 enfants","Oui 3 enfants ou plus"]},{q:"Ton age ?",c:["Moins de 25 ans","Entre 25 et 55 ans","Plus de 55 ans"]},{q:"Tu as des economies ?",c:["Non tres peu","Un peu moins de 10 000 euros","Oui plus de 10 000 euros"]}],
+   montant:"607 a 1200 euros par mois",
+   docs:[{i:"&#129330;",n:"Piece identite",d:"CNI passeport ou titre de sejour"},{i:"&#127968;",n:"Justificatif domicile",d:"Facture EDF eau internet de moins de 3 mois"},{i:"&#128182;",n:"Releves de compte",d:"Les 3 derniers mois"},{i:"&#127970;",n:"RIB",d:"Pour recevoir le virement mensuel"},{i:"&#128203;",n:"Declaration trimestrielle",d:"Formulaire sur caf.fr tous les 3 mois"}],
+   proc:[{t:"Verifie ton eligibilite",d:"Plus de 25 ans ou avoir eu un enfant. Residences stable en France.",l:"https://www.caf.fr",lt:"Tester"},{t:"Fais la demande",d:"Sur caf.fr ou en mairie au CCAS."},{t:"Signe le Contrat Engagement",d:"Dans les 3 mois tu rencontres un conseiller Pole Emploi. Obligatoire."},{t:"Declare chaque trimestre",d:"Sur caf.fr ou app CAF. Si oubli le RSA est suspendu."}],
+   info:{tp:"aok",tx:"Si tu reprends un travail tu continues a toucher une partie du RSA pendant 3 mois. Appelle ca RSA chapeau."},
+   warn:{tp:"aw",tx:"Moins de 25 ans : droit au RSA uniquement si travaille 2 ans sur les 3 dernieres annees."},
+   dts:[{i:"&#127973;",t:"Complementaire sante solidaire",b:"Gratuite",u:"https://www.ameli.fr"},{i:"&#9889;",t:"Cheque energie automatique",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127891;",t:"Formations financees a 100%",b:"CPF et Pole Emploi",u:"https://www.moncompteformation.gouv.fr"}],
+   prt:[{i:"&#127891;",n:"OpenClassrooms",d:"Formations reconnues financables Pole Emploi",c:"Voir",u:"https://openclassrooms.com"},{i:"&#128188;",n:"Pole Emploi",d:"Accompagnement pour retrouver un emploi",c:"S inscrire",u:"https://www.pole-emploi.fr"}],
+   lien:"https://www.caf.fr"},
+
+  {id:"chomage",ico:"&#128188;",name:"Inscription Pole Emploi",desc:"Allocations chomage ARE",cat:"emploi",t:"3 min",dif:"Facile",bg:"#F5F3FF",
+   qs:[{q:"Pourquoi as-tu perdu ton emploi ?",c:["Licenciement economique ou personnel","Fin de CDD ou interim","Rupture conventionnelle","Demission motif legitime"]},{q:"Tu as travaille combien de temps ?",c:["Moins de 6 mois","Entre 6 mois et 1 an","Entre 1 et 2 ans","Plus de 2 ans"]},{q:"Ton salaire mensuel brut ?",c:["Moins de 1500 euros","Entre 1500 et 2500","Entre 2500 et 4000","Plus de 4000 euros"]}],
+   montant:"57 a 75% de ton ancien salaire",
+   docs:[{i:"&#128196;",n:"Attestation employeur",d:"Fournie OBLIGATOIREMENT par ton employeur. Demande-la si absent."},{i:"&#129330;",n:"Piece identite",d:"CNI ou passeport"},{i:"&#127968;",n:"Justificatif domicile",d:"Moins de 3 mois"},{i:"&#127970;",n:"RIB",d:"Pour le versement"},{i:"&#128182;",n:"Dernier bulletin de salaire",d:"Pour calculer tes allocations"}],
+   proc:[{t:"Inscris-toi dans les 12 mois",d:"Chaque jour de retard = droits perdus definitivement.",l:"https://www.pole-emploi.fr",lt:"S inscrire"},{t:"Inscription en ligne 15 min",d:"Sur pole-emploi.fr. Tu choisis ta date de premier RDV."},{t:"Valide l inscription",d:"RDV dans les 8 jours avec tous tes documents."},{t:"Actualise chaque mois",d:"Entre le 28 et le 15. Si oubli allocation suspendue."}],
+   info:{tp:"ai",tx:"Si ton employeur ne t a pas remis l attestation tu peux quand meme t inscrire. Pole Emploi la demandera directement."},
+   warn:{tp:"aw",tx:"Une demission ne donne pas droit au chomage sauf motif legitime reconnu : demenagement pour conjoint situation de danger."},
+   dts:[{i:"&#127968;",t:"APL aide au logement",b:"Jusqu a 340 euros mois",u:"https://www.caf.fr"},{i:"&#127891;",t:"CPF formation pendant le chomage",b:"500 euros an",u:"https://www.moncompteformation.gouv.fr"},{i:"&#127973;",t:"Maintien mutuelle ex-employeur",b:"12 mois portabilite",u:"https://www.service-public.fr"}],
+   prt:[{i:"&#128187;",n:"Malt Freelance",d:"Lance-toi en freelance tout en touchant le chomage",c:"Decouvrir",u:"https://www.malt.fr"},{i:"&#127891;",n:"LinkedIn Learning",d:"2 mois gratuits pour te former",c:"2 mois offerts",u:"https://www.linkedin.com/learning"}],
+   lien:"https://www.pole-emploi.fr"},
+
+  {id:"cni",ico:"&#129330;",name:"Carte identite",desc:"Renouvellement ou premiere demande",cat:"docs",t:"2 min",dif:"Facile",bg:"#EEF2FF",
+   qs:[{q:"C est pour quoi ?",c:["Renouvellement carte expiree","Premiere carte identite","Perte ou vol","Carte pour enfant mineur"]},{q:"Tu as des photos recentes ?",c:["Oui moins de 6 mois","Non je dois en faire"]},{q:"Tu as un RDV en mairie ?",c:["Oui j ai un RDV","Non je dois en prendre"]}],
+   montant:"Gratuit",
+   docs:[{i:"&#128247;",n:"2 photos identite",d:"Format 35x45mm fond clair moins de 6 mois. Refusees si selfie ou filtre."},{i:"&#127968;",n:"Justificatif domicile",d:"Facture EDF eau tele a ton nom moins de 1 an"},{i:"&#129330;",n:"Ancienne carte identite",d:"Meme expiree depuis moins de 5 ans"},{i:"&#128196;",n:"Acte de naissance",d:"Si premiere demande ou ancienne carte plus de 5 ans",opt:1},{i:"&#128196;",n:"Declaration perte ou vol",d:"A faire a la police si perdue ou volee",opt:1}],
+   proc:[{t:"Formulaire en ligne",d:"Sur ants.gouv.fr Carte nationale identite. Genere un numero de pre-demande.",l:"https://predemande.ants.gouv.fr",lt:"Demarrer ANTS"},{t:"RDV en mairie",d:"Sur mairie-rdv.fr ou site de ta mairie.",l:"https://www.mairie-rdv.fr",lt:"Trouver RDV"},{t:"Presente-toi au RDV",d:"Empreintes prises. Duree 20 minutes."},{t:"Recois ta carte",d:"Delai 3 a 4 semaines. SMS quand prete."}],
+   info:{tp:"ai",tx:"Une CNI perimee reste valable comme titre de voyage en UE pendant 5 ans si tu avais plus de 15 ans a la delivrance."},
+   warn:{tp:"aw",tx:"Pour un enfant mineur les 2 parents doivent etre presents ou un avec procuration sauf garde exclusive."},
+   dts:[{i:"&#9992;",t:"Passeport biometrique meme dossier",b:"86 euros",u:"https://www.service-public.fr"},{i:"&#128507;",t:"Inscription listes electorales",b:"Gratuit",u:"https://www.service-public.fr"},{i:"&#127891;",t:"Carte etudiant des metiers",b:"Gratuite",u:"https://www.service-public.fr"}],
+   prt:[{i:"&#9992;",n:"Booking.com",d:"Prepare ton voyage avec ta nouvelle CNI",c:"Chercher",u:"https://www.booking.com"},{i:"&#128247;",n:"Photomaton",d:"Photos conformes en 2 min pres de chez toi",c:"Trouver",u:"https://www.photomaton.fr"}],
+   lien:"https://predemande.ants.gouv.fr"},
+
+  {id:"carte_grise",ico:"&#128665;",name:"Carte grise",desc:"Immatriculation changement proprietaire",cat:"docs",t:"4 min",dif:"Moyen",bg:"#FFF7ED",
+   qs:[{q:"Raison de la demarche ?",c:["Achat vehicule occasion","Vehicule neuf concessionnaire","Changement adresse","Perte ou vol"]},{q:"Tu as le certificat de cession ?",c:["Oui je l ai","Non je dois le recuperer","C est quoi"]},{q:"Controle technique fait ?",c:["Oui moins de 6 mois","Non ou plus de 6 mois","Vehicule moins de 4 ans"]}],
+   montant:"30 a 300 euros selon region et puissance",
+   docs:[{i:"&#128196;",n:"Cerfa 15776 cession",d:"Signe par ancien proprietaire ET toi. Date et heure precisees."},{i:"&#128269;",n:"Certificat situation administrative",d:"Gratuit sur histovec.interieur.gouv.fr"},{i:"&#129330;",n:"Piece identite",d:"CNI ou passeport"},{i:"&#127968;",n:"Justificatif domicile",d:"Moins de 6 mois a ton nom"},{i:"&#128270;",n:"Controle technique",d:"Si vehicule plus de 4 ans vendu par particulier moins de 6 mois."}],
+   proc:[{t:"Verifie le vehicule",d:"Sur histovec.interieur.gouv.fr avec le numero de chassis.",l:"https://histovec.interieur.gouv.fr",lt:"Verifier Histovec"},{t:"Demande sur ANTS",d:"Sur immatriculation.ants.gouv.fr. Tout en ligne.",l:"https://immatriculation.ants.gouv.fr",lt:"Faire demande"},{t:"Paie en ligne",d:"Par CB. Montant selon region et chevaux fiscaux."},{t:"Certificat provisoire immediat",d:"Valable 1 mois. Imprime-le."},{t:"Carte grise par courrier",d:"Delai 7 a 30 jours. Lettre recommandee."}],
+   info:{tp:"ai",tx:"Tu as 1 mois pour changer la carte grise a ton nom apres un achat. Passe ce delai amende de 135 euros."},
+   warn:{tp:"aw",tx:"Controle technique negatif : tu peux acheter mais dois faire reparer dans les 2 mois."},
+   dts:[{i:"&#128737;",t:"Compare assurances auto",b:"Economise jusqu a 40%",u:"https://www.lelynx.fr"},{i:"&#9889;",t:"Bonus ecologique vehicule electrique",b:"Jusqu a 7000 euros",u:"https://www.service-public.fr"},{i:"&#128665;",t:"Prime a la conversion",b:"Jusqu a 5000 euros",u:"https://www.primealaconversion.gouv.fr"}],
+   prt:[{i:"&#128737;",n:"LeLynx Assurance",d:"Compare assurances auto en 2 min",c:"Comparer",u:"https://www.lelynx.fr"},{i:"&#128295;",n:"Midas",d:"Controle technique pres de chez toi",c:"Trouver",u:"https://www.midas.fr"}],
+   lien:"https://immatriculation.ants.gouv.fr"},
+
+  {id:"impots",ico:"&#128202;",name:"Declaration impots",desc:"Revenus deductions remboursements",cat:"aides",t:"5 min",dif:"Moyen",bg:"#FFF7ED",
+   qs:[{q:"Tu as deja declare avant ?",c:["Oui chaque annee","Premiere declaration","Je ne sais pas si je dois"]},{q:"Situation familiale ?",c:["Celibataire ou divorce","Marie ou pacse","Parent seul avec enfants","Veuf ou veuve"]},{q:"Elements particuliers cette annee ?",c:["Non juste un salaire","Frais pro dons garde enfants","Revenus fonciers ou capitaux","Activite independante"]}],
+   montant:"Variable souvent un remboursement si bien remplie",
+   docs:[{i:"&#128203;",n:"Numero fiscal 13 chiffres",d:"Sur n importe quel avis imposition ou courrier impots"},{i:"&#128182;",n:"Bulletins de salaire",d:"Surtout le dernier les impots pre-remplissent deja"},{i:"&#128118;",n:"Frais garde enfants",d:"Factures creche nounou credit impot 50%",opt:1},{i:"&#128157;",n:"Dons associations",d:"Recus fiscaux reduction 66 a 75%",opt:1}],
+   proc:[{t:"Connecte-toi impots.gouv.fr",d:"Avec numero fiscal et mot de passe. Premiere fois creer espace.",l:"https://www.impots.gouv.fr",lt:"Acceder"},{t:"Verifie la declaration pre-remplie",d:"Les impots ont deja rempli tes revenus. Verifie que tout est juste."},{t:"Ajoute tes deductions",d:"Frais garde dons travaux... Chaque case = moins d impots ou remboursement."},{t:"Valide avant la date limite",d:"Mi-mai papier fin mai a fin juin en ligne selon departement."},{t:"Recois ton avis",d:"En juillet-aout. Indique si complement a payer ou remboursement."}],
+   info:{tp:"aok",tx:"Meme si tu n as pas paye d impots l an dernier declare quand meme. Ca peut ouvrir des droits CAF et declencher des remboursements."},
+   warn:{tp:"aw",tx:"Depuis 2019 le prelevement est automatique sur ton salaire. La declaration annuelle sert a regulariser."},
+   dts:[{i:"&#128118;",t:"Credit impot garde enfants",b:"50% des frais",u:"https://www.impots.gouv.fr"},{i:"&#127968;",t:"MaPrimeRenov travaux",b:"Selon revenus",u:"https://www.maprimerenov.gouv.fr"},{i:"&#128157;",t:"Reduction dons associations",b:"66 a 75%",u:"https://www.impots.gouv.fr"}],
+   prt:[{i:"&#128202;",n:"Indy Comptabilite",d:"Aide a declarer revenus auto-entrepreneur",c:"Essai gratuit",u:"https://www.indy.fr"},{i:"&#9878;",n:"Legalstart",d:"Expert fiscal repond a tes questions",c:"Consulter",u:"https://www.legalstart.fr"}],
+   lien:"https://www.impots.gouv.fr"},
+
+  {id:"micro",ico:"&#129534;",name:"Creer son auto-entreprise",desc:"Micro-entrepreneur SIRET URSSAF",cat:"ent",t:"5 min",dif:"Moyen",bg:"#ECFDF5",
+   qs:[{q:"Type d activite ?",c:["Services informatique conseil redaction","Artisanat coiffure plomberie cuisine","Commerce vente produits","Liberal coach formateur"]},{q:"Tu es deja salarie ?",c:["Non sans emploi","Oui je veux cumuler","Etudiant","Retraite"]},{q:"Tu as un nom de projet ?",c:["Oui j ai un nom","Non pas encore","Je veux juste voir comment ca marche"]}],
+   montant:"0 euro de creation cotisations a partir de 12%",
+   docs:[{i:"&#129330;",n:"Piece identite",d:"CNI ou passeport scannee ou photo claire"},{i:"&#127968;",n:"Justificatif domicile",d:"Si tu travailles depuis chez toi"},{i:"&#127970;",n:"RIB professionnel",d:"Compte dedie fortement recommande",opt:1}],
+   proc:[{t:"Declare sur URSSAF",d:"Sur autoentrepreneur.urssaf.fr en 15 minutes. SIRET en 1 a 4 semaines.",l:"https://www.autoentrepreneur.urssaf.fr",lt:"Creer"},{t:"Ouvre un compte dedie",d:"Obligatoire apres 10 000 euros de CA annuel. Conseille des le debut."},{t:"Declare et paie cotisations",d:"Chaque mois ou trimestre sur URSSAF. 12 a 22% de ton CA."},{t:"Reste sous les seuils",d:"77 700 euros services 188 700 vente. Au-dela passage en societe."}],
+   info:{tp:"ai",tx:"Si tu es au chomage tu peux cumuler les allocations ARE avec tes revenus. Previens Pole Emploi avant de lancer."},
+   warn:{tp:"aw",tx:"Seuils a ne pas depasser : 77 700 euros pour services, 188 700 pour vente."},
+   dts:[{i:"&#128176;",t:"ACRE exoneration cotisations 1 an",b:"50% pendant 1 an",u:"https://www.urssaf.fr"},{i:"&#127891;",t:"ARCE capital chomage en 2 fois",b:"60% des droits ARE",u:"https://www.pole-emploi.fr"},{i:"&#127970;",t:"Pret honneur ADIE",b:"Jusqu a 12 000 euros a 0%",u:"https://www.adie.org"}],
+   prt:[{i:"&#127970;",n:"Shine Compte Pro",d:"Compte bancaire pro gratuit auto-entrepreneurs",c:"1 mois offert",u:"https://www.shine.fr"},{i:"&#128202;",n:"Indy",d:"Comptabilite automatique micro-entrepreneurs",c:"Essai gratuit",u:"https://www.indy.fr"}],
+   lien:"https://www.autoentrepreneur.urssaf.fr"},
+
+  {id:"logement",ico:"&#127962;",name:"Logement social HLM",desc:"Demande numero unique file attente",cat:"log",t:"4 min",dif:"Moyen",bg:"#FDF2F8",
+   qs:[{q:"C est ta premiere demande ?",c:["Oui premiere fois","Non je renouvelle","J ai un numero mais ai demenage"]},{q:"Situation familiale ?",c:["Seul sans enfants","En couple sans enfants","Famille 1 ou 2 enfants","Famille 3 enfants ou plus"]},{q:"Logement actuel ?",c:["Je loue dans le prive","Heberge chez quelqu un","Logement urgence","Autre"]}],
+   montant:"Loyer 20 a 40% moins cher que le marche prive",
+   docs:[{i:"&#129330;",n:"Piece identite tous les membres",d:"CNI passeport ou titre de sejour de chaque personne"},{i:"&#128182;",n:"Avis imposition N-1 et N-2",d:"De toutes les personnes du foyer"},{i:"&#127968;",n:"Justificatif logement actuel",d:"Pour prouver ta situation"},{i:"&#128196;",n:"Justificatif situation particuliere",d:"Handicap violence conjugale expulsion",opt:1}],
+   proc:[{t:"Fais ta demande en ligne",d:"Sur demande-logement-social.gouv.fr ou en mairie.",l:"https://www.demande-logement-social.gouv.fr",lt:"Faire demande"},{t:"Recois ton numero unique",d:"Dans les 30 jours. Note-le. Prouve l anciennete de ta demande."},{t:"Renouvelle chaque annee",d:"Obligatoire sinon demande annulee et anciennete perdue."},{t:"Reponds rapidement",d:"10 jours pour repondre a une proposition. 3 refus = radiation."}],
+   info:{tp:"ai",tx:"Tu peux deposer ta demande dans plusieurs departements. Ca augmente tes chances si tu peux demenager."},
+   warn:{tp:"aw",tx:"Delais tres longs en Ile-de-France : 5 a 10 ans a Paris. Explore aussi Action Logement si tu es salarie."},
+   dts:[{i:"&#127968;",t:"APL aide au logement",b:"Jusqu a 340 euros mois",u:"https://www.caf.fr"},{i:"&#9889;",t:"Cheque energie",b:"48 a 277 euros an",u:"https://chequeenergie.gouv.fr"},{i:"&#127959;",t:"MaPrimeRenov travaux",b:"Selon revenus",u:"https://www.maprimerenov.gouv.fr"}],
+   prt:[{i:"&#127968;",n:"SeLoger",d:"Logement prive en attendant le HLM",c:"Chercher",u:"https://www.seloger.com"},{i:"&#128182;",n:"Action Logement",d:"Aide aux salaries pour le logement",c:"Voir aides",u:"https://www.actionlogement.fr"}],
+   lien:"https://www.demande-logement-social.gouv.fr"},
+
+  {id:"cmu",ico:"&#127973;",name:"Complementaire sante solidaire",desc:"CSS anciennement CMU-C",cat:"aides",t:"2 min",dif:"Facile",bg:"#FEF2F2",
+   qs:[{q:"Tu as une mutuelle ?",c:["Non aucune","Oui trop chere","Oui via employeur","Je ne sais pas"]},{q:"Tu beneficies d une aide ?",c:["Je touche le RSA","J ai l APL ou aides CAF","Aucune aide","Demandeur asile"]}],
+   montant:"Gratuite ou moins de 1 euro par jour",
+   docs:[{i:"&#128203;",n:"Formulaire S3711",d:"Demande CSS telecharger sur ameli.fr"},{i:"&#128182;",n:"Justificatifs revenus",d:"Avis imposition bulletins salaire attestation RSA 12 derniers mois"},{i:"&#129330;",n:"Piece identite",d:"CNI ou carte de sejour"},{i:"&#128179;",n:"Attestation Securite Sociale",d:"Sur ameli.fr dans ton espace"}],
+   proc:[{t:"Verifie eligibilite",d:"Plafond 2024 : 877 euros mois 1 personne. 1316 euros 2 personnes.",l:"https://www.ameli.fr",lt:"Verifier"},{t:"Telecharge formulaire S3711",d:"Sur ameli.fr ou au guichet de ta CPAM."},{t:"Envoie a ta CPAM",d:"Par courrier en ligne ou au guichet."},{t:"Attends la decision",d:"2 a 4 semaines. CSS renouvelee automatiquement chaque annee."}],
+   info:{tp:"aok",tx:"Avec la CSS tu paies tes medicaments consultations hospitalisations a 0 euro. Lunettes et soins dentaires inclus."},
+   warn:{tp:"aw",tx:"Si tu touches le RSA tu as automatiquement droit a la CSS. Verifie que tu l as bien activee."},
+   dts:[{i:"&#128065;",t:"Lunettes prise en charge 100%",b:"Avec CSS",u:"https://www.ameli.fr"},{i:"&#129463;",t:"Soins dentaires rembourses",b:"Avec CSS",u:"https://www.ameli.fr"},{i:"&#128138;",t:"Medicaments sans avance",b:"Tiers payant",u:"https://www.ameli.fr"}],
+   prt:[{i:"&#127973;",n:"Alan Sante",d:"Mutuelle en ligne si tu repasses au-dessus",c:"Simuler",u:"https://alan.com"},{i:"&#128138;",n:"Doctolib",d:"Consulte en ligne rembourse avec CSS",c:"Prendre RDV",u:"https://www.doctolib.fr"}],
+   lien:"https://www.ameli.fr"},
+
+  {id:"naissance",ico:"&#128118;",name:"Acte de naissance",desc:"Copie integrale demande officielle",cat:"docs",t:"2 min",dif:"Facile",bg:"#FDF2F8",
+   qs:[{q:"Pour quelle raison ?",c:["Renouvellement CNI ou passeport","Mariage ou Pacs","Dossier emploi ou banque","Naturalisation ou visa"]},{q:"La naissance a eu lieu ou ?",c:["En France metropolitaine","En DOM-TOM","A l etranger parents francais"]}],
+   montant:"Gratuit",
+   docs:[{i:"&#129330;",n:"Piece identite",d:"Pour prouver que tu es bien la personne ou parent direct"},{i:"&#128203;",n:"Nom prenom date et lieu de naissance",d:"De la personne concernee obligatoire"}],
+   proc:[{t:"Demande en ligne",d:"Sur service-public.fr. Acte envoye par courrier en 10-15 jours.",l:"https://www.service-public.fr/particuliers/vosdroits/F1430",lt:"Demander"},{t:"Ou en mairie",d:"Par courrier ou guichet. Gratuit. Immediat au guichet 15 jours courrier."},{t:"Naissance a l etranger",d:"Service Central Etat Civil a Nantes.",l:"https://actes.diplomatie.gouv.fr",lt:"Actes etranger"}],
+   info:{tp:"ai",tx:"Tu peux demander l acte de naissance de tes enfants mineurs de toi-meme ou de tes parents si heritier direct."},
+   warn:{tp:"aw",tx:"Un acte de naissance n est valable que 3 mois pour les demarches. Demande-le au dernier moment."},
+   dts:[{i:"&#129330;",t:"Carte identite avec acte naissance",b:"Gratuite",u:"https://predemande.ants.gouv.fr"},{i:"&#9992;",t:"Passeport biometrique",b:"86 euros",u:"https://www.service-public.fr"},{i:"&#128336;",t:"Acte mariage ou PACS",b:"Gratuit",u:"https://www.service-public.fr"}],
+   prt:[{i:"&#9992;",n:"Booking.com",d:"Prepare ton voyage une fois tes docs prets",c:"Chercher",u:"https://www.booking.com"},{i:"&#129330;",n:"ANTS",d:"Tous tes titres officiels en un endroit",c:"Acceder",u:"https://ants.gouv.fr"}],
+   lien:"https://www.service-public.fr"},
+
+  {id:"permis",ico:"&#128664;",name:"Permis de conduire",desc:"Remplacement perte duplicata",cat:"docs",t:"2 min",dif:"Facile",bg:"#ECFEFF",
+   qs:[{q:"Pour quelle raison ?",c:["Mon permis est perdu","Mon permis a ete vole","Permis abime illisible","Changement adresse"]},{q:"Tu habites en France ?",c:["Oui metropolitaine","Oui DOM-TOM","Non je suis a l etranger"]}],
+   montant:"Gratuit sauf perte ou vol : 25 euros",
+   docs:[{i:"&#129330;",n:"Piece identite",d:"CNI ou passeport valide"},{i:"&#127968;",n:"Justificatif domicile",d:"Moins de 6 mois"},{i:"&#128247;",n:"Photo identite",d:"Recente fond neutre sans lunettes"},{i:"&#128203;",n:"Declaration perte ou vol",d:"Au commissariat ou gendarmerie",opt:1},{i:"&#128179;",n:"Timbre fiscal 25 euros",d:"Sur timbres.impots.gouv.fr avant la demande",opt:1}],
+   proc:[{t:"Achete timbre fiscal si besoin",d:"25 euros sur timbres.impots.gouv.fr. Pas necessaire si changement adresse.",l:"https://timbres.impots.gouv.fr",lt:"Acheter"},{t:"Demande sur ANTS",d:"Sur permisdeconduire.ants.gouv.fr Declarer perte puis Demander duplicata.",l:"https://permisdeconduire.ants.gouv.fr",lt:"Faire demande"},{t:"Attestation provisoire immediate",d:"Valable 2 mois. Tu peux conduire normalement."},{t:"Permis par courrier",d:"2 a 4 semaines en lettre recommandee."}],
+   info:{tp:"ai",tx:"Avec l attestation provisoire tu peux conduire normalement. Garde-la avec toi jusqu au permis definitif."},
+   warn:{tp:"aw",tx:"Permis vole a l etranger : declaration a la police locale ET a l ambassade de France."},
+   dts:[{i:"&#128737;",t:"Compare assurances auto",b:"Economise",u:"https://www.lelynx.fr"},{i:"&#128665;",t:"Code de la route en ligne",b:"Gratuit",u:"https://www.securite-routiere.gouv.fr"},{i:"&#128664;",t:"Controle technique vehicule",b:"Selon age vehicule",u:"https://www.service-public.fr"}],
+   prt:[{i:"&#128737;",n:"LeLynx Assurance",d:"Compare assurances auto economise jusqu a 40%",c:"Comparer",u:"https://www.lelynx.fr"},{i:"&#128664;",n:"Auto-Ecole.net",d:"Trouve une auto-ecole pour reprendre le code",c:"Chercher",u:"https://www.auto-ecole.net"}],
+   lien:"https://permisdeconduire.ants.gouv.fr"},
+
+  {id:"divorce",ico:"&#9878;",name:"Divorce a l amiable",desc:"Procedure par consentement mutuel",cat:"ent",t:"5 min",dif:"Moyen",bg:"#F9FAFB",
+   qs:[{q:"Vous etes d accord sur tout ?",c:["Oui accord total","Accord sur l essentiel","Non des desaccords importants"]},{q:"Vous avez des enfants mineurs ?",c:["Non pas d enfants","Oui 1 enfant","Oui 2 enfants ou plus"]},{q:"Des biens immobiliers communs ?",c:["Non aucun bien","Oui un appartement","Oui plusieurs biens"]}],
+   montant:"1500 a 2500 euros honoraires avocats sans tribunal",
+   docs:[{i:"&#128196;",n:"Acte de mariage",d:"Copie integrale a demander a la mairie du mariage"},{i:"&#128118;",n:"Actes naissance enfants",d:"Si enfants mineurs"},{i:"&#127968;",n:"Titres de propriete",d:"Si biens immobiliers"},{i:"&#128182;",n:"Releves comptes communs",d:"Pour la liquidation du regime matrimonial"}],
+   proc:[{t:"Chacun prend son avocat",d:"Obligatoire. Les deux avocats travaillent ensemble pour la convention."},{t:"Redaction de la convention",d:"Fixe tout : garde enfants pension alimentaire partage biens."},{t:"Delai reflexion 15 jours",d:"Apres reception du projet 15 jours minimum avant signature. Obligatoire."},{t:"Signature chez notaire",d:"Convention deposee chez notaire. Pas de passage au tribunal."},{t:"Divorce officialise",d:"3 a 6 mois en general. Mairie informee pour etat civil."}],
+   info:{tp:"ai",tx:"Divorce par consentement mutuel le plus rapide et le moins couteux. Sans juge sans audience."},
+   warn:{tp:"aw",tx:"Si enfants mineurs veulent etre entendus par un juge la procedure passe obligatoirement par le tribunal."},
+   dts:[{i:"&#128118;",t:"Aide juridictionnelle revenus faibles",b:"Frais pris en charge",u:"https://www.service-public.fr"},{i:"&#127968;",t:"APL disponible apres separation",b:"Droit individuel",u:"https://www.caf.fr"},{i:"&#128182;",t:"RSA si sans revenus",b:"Droit individuel",u:"https://www.caf.fr"}],
+   prt:[{i:"&#9878;",n:"Legalstart",d:"Avocat divorce rapide en ligne",c:"Consulter",u:"https://www.legalstart.fr"},{i:"&#127968;",n:"SeLoger",d:"Trouve ton logement apres la separation",c:"Chercher",u:"https://www.seloger.com"}],
+   lien:"https://www.service-public.fr"}
+];
+
+var cur=null,stp=0,ans=[],typ=false;
+var dos=[];try{dos=JSON.parse(localStorage.getItem("dmia3")||"[]");}catch(e){}
+var curcat="all";
+
+function rh(f,c){
+  f=f||"";c=c||curcat;
+  var data=D.filter(function(d){return (c==="all"||d.cat===c)&&(!f||d.name.toLowerCase().includes(f.toLowerCase())||d.desc.toLowerCase().includes(f.toLowerCase()));});
+  document.getElementById("cnt").textContent=data.length+" demarche"+(data.length>1?"s":"")+" disponible"+(data.length>1?"s":"");
+  document.getElementById("dlist").innerHTML=data.map(function(d){return "<div class=\"drow\" onclick=\"go('"+d.id+"')\"><div class=\"dico\" style=\"background:"+d.bg+"\">"+d.ico+"</div><div style=\"flex:1\"><div class=\"dname\">"+d.name+"</div><div class=\"ddesc\">"+d.desc+"</div><div class=\"dmeta\"><span class=\"dtime\">"+d.t+"</span><span class=\"ddiff "+(d.dif==="Facile"?"easy":"med")+"\">" +d.dif+"</span></div></div><div style=\"color:var(--di)\">&#8250;</div></div>";}).join("");
+}
+function fcat(c,btn){curcat=c;document.querySelectorAll(".cat").forEach(function(b){b.classList.remove("on");});btn.classList.add("on");rh(document.getElementById("srch").value,c);}
+function filt(v){rh(v,curcat);}
+
+function go(id){
+  var d=D.find(function(x){return x.id===id;});if(!d)return;
+  cur=d;stp=0;ans=[];
+  document.getElementById("msgs").innerHTML="";
+  document.getElementById("cico").innerHTML=d.ico;
+  document.getElementById("cico").style.background=d.bg;
+  document.getElementById("cname").textContent=d.name;
+  document.getElementById("csub").textContent=d.desc;
+  pg(0);sp("chat");
+  setTimeout(function(){ask(0);},500);
+}
+function ask(i){
+  var s=cur.qs[i];if(!s){res();return;}
+  sdots();
+  setTimeout(function(){rdots();bm(s.q);chs(s.c);},700+Math.random()*300);
+}
+function bm(txt){
+  var m=document.getElementById("msgs");
+  var el=document.createElement("div");el.className="msg";
+  el.innerHTML="<div class=\"av avb\">&#129302;</div><div class=\"bbl bblb\">"+txt+"</div>";
+  m.appendChild(el);m.scrollTop=m.scrollHeight;
+}
+function chs(cs){
+  var m=document.getElementById("msgs");
+  var el=document.createElement("div");el.className="chcs";el.id="cc";
+  el.innerHTML=cs.map(function(c){return "<button class=\"chc\" onclick=\"pk(this.textContent)\">"+c+"</button>";}).join("");
+  m.appendChild(el);m.scrollTop=m.scrollHeight;
+}
+function pk(c){
+  var cc=document.getElementById("cc");if(cc)cc.remove();
+  um(c);ans.push(c);stp++;
+  pg(Math.round(stp/cur.qs.length*85));
+  setTimeout(function(){ask(stp);},300);
+}
+function um(txt){
+  var m=document.getElementById("msgs");
+  var el=document.createElement("div");el.className="msg usr";
+  el.innerHTML="<div class=\"av avu\">&#128100;</div><div class=\"bbl bblu\">"+txt+"</div>";
+  m.appendChild(el);m.scrollTop=m.scrollHeight;
+}
+function sdots(){
+  var m=document.getElementById("msgs");
+  var el=document.createElement("div");el.className="msg";el.id="dd";
+  el.innerHTML="<div class=\"av avb\">&#129302;</div><div class=\"bbl bblb\"><div class=\"dots\"><span></span><span></span><span></span></div></div>";
+  m.appendChild(el);m.scrollTop=m.scrollHeight;
+}
+function rdots(){var d=document.getElementById("dd");if(d)d.remove();}
+async function sm(){
+  var inp=document.getElementById("ctxt");
+  var txt=inp.value.trim();if(!txt||typ)return;
+  inp.value="";ar(inp);typ=true;um(txt);sdots();
+  try{
+    var r=await fetch("https://api.anthropic.com/v1/messages",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:500,system:"Tu es DemarchIA assistant administratif francais. Reponds en 3 phrases simples. Demarche : "+(cur?cur.name:""),messages:[{role:"user",content:txt}]})});
+    var data=await r.json();rdots();
+    bm(data.content?data.content.map(function(b){return b.text||"";}).join(""):"Peux-tu reformuler ?");
+  }catch(e){rdots();bm("Probleme de connexion. Utilise les boutons.");}
+  typ=false;
+}
+function hk(e){if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();sm();}}
+function ar(el){el.style.height="auto";el.style.height=Math.min(el.scrollHeight,85)+"px";}
+function pg(p){document.getElementById("pf").style.width=p+"%";document.getElementById("pt").textContent=p+"%";}
+
+function res(){
+  pg(100);var d=cur;
+  sd(d.name,d.ico,d.id);
+  var C=document.getElementById("rc");
+  var docs=d.docs.map(function(x,i){return "<div class=\"docr\"><div style=\"font-size:1.1rem;flex-shrink:0\">"+x.i+"</div><div style=\"flex:1\"><div class=\"docn\">"+x.n+"</div><div class=\"docd\">"+x.d+"</div>"+(x.opt?"<span class=\"opt\">Optionnel</span>":"")+"</div><div class=\"cb\" id=\"cb"+i+"\" onclick=\"tc("+i+")\"></div></div>";}).join("");
+  var steps=d.proc.map(function(s,i){return "<div class=\"stepr\"><div class=\"stepn\">"+(i+1)+"</div><div style=\"flex:1\"><div class=\"stept\">"+s.t+"</div><div class=\"stepd\">"+s.d+"</div>"+(s.l?"<a class=\"stepl\" href=\""+s.l+"\" target=\"_blank\">"+s.lt+" &#8594;</a>":"")+"</div></div>";}).join("");
+  var dts=d.dts.map(function(x){return "<a class=\"drr\" href=\""+x.u+"\" target=\"_blank\" rel=\"noopener\"><span style=\"font-size:1rem\">"+x.i+"</span><span style=\"font-size:.79rem;font-weight:500;color:var(--tx);flex:1\">"+x.t+"</span><span class=\"drb\">"+x.b+"</span></a>";}).join("");
+  var prts=d.prt.map(function(x){return "<a class=\"partr\" href=\""+x.u+"\" target=\"_blank\" rel=\"noopener sponsored\"><div style=\"font-size:1.2rem\">"+x.i+"</div><div style=\"flex:1\"><div class=\"pn\">"+x.n+"</div><div class=\"pd\">"+x.d+"</div></div><div class=\"pc\">"+x.c+" &#8594;</div></a>";}).join("");
+  C.innerHTML="<div class=\"rhero\"><div style=\"font-size:2rem;margin-bottom:.38rem\">&#9989;</div><div style=\"font-size:1.15rem;font-weight:800;letter-spacing:-.03em;margin-bottom:.22rem\">Dossier pret !</div><div style=\"font-size:.77rem;opacity:.8\">Tout pour : <strong>"+d.name+"</strong></div></div>"+(d.montant?"<div class=\"blk\"><div class=\"blkh\">Montant estime</div><div class=\"mbox\"><div class=\"mv\">"+d.montant+"</div><div class=\"ms\">Estimation selon ta situation</div></div></div>":"")+"<div class=\"blk\"><div class=\"blkh\">Documents a rassembler</div>"+docs+"</div><div class=\"blk\"><div class=\"blkh\">Etapes dans l ordre</div>"+steps+"</div><div class=\"blk\"><div class=\"alrt "+d.info.tp+"\">"+d.info.tx+"</div></div><div class=\"blk\"><div class=\"alrt "+d.warn.tp+"\">"+d.warn.tx+"</div></div><div class=\"blk\"><div class=\"blkh\">Tu pourrais aussi avoir droit a</div>"+dts+"</div><div class=\"blk\"><div class=\"blkh\">Services utiles Partenaires</div>"+prts+"<div style=\"padding:.38rem .95rem;font-size:.6rem;color:var(--di)\">Liens partenaires remuneres</div></div><div class=\"nlbox\"><div style=\"font-size:.9rem;font-weight:700;margin-bottom:.22rem\">Rappels admin personnalises</div><div style=\"font-size:.72rem;opacity:.7;line-height:1.5\">CNI, CAF, impots... on te previent avant les deadlines.</div><div class=\"nlr\"><input class=\"nli\" type=\"email\" placeholder=\"ton@email.fr\" id=\"nle\"><button class=\"nlb\" onclick=\"snl()\">M alerter</button></div></div><button class=\"btnp\" onclick=\"window.open('"+d.lien+"','_blank')\">Aller sur le site officiel &#8594;</button><button class=\"btns\" onclick=\"sw('home')\">Faire une autre demarche</button><div class=\"disc\">DemarchIA est independant et non affilie a l Etat. Informations indicatives.</div>";
+  sp("result");
+}
+function tc(i){var c=document.getElementById("cb"+i);c.classList.toggle("on");c.textContent=c.classList.contains("on")?"&#10003;":"";}
+function snl(){var e=document.getElementById("nle").value;if(!e||!e.includes("@")){alert("Entre un email valide.");return;}document.querySelector(".nlbox").innerHTML="<div style=\"text-align:center;padding:.5rem;color:#fff\"><div style=\"font-size:1.5rem\">&#127881;</div><div style=\"font-weight:700;margin:.28rem 0\">Noted!</div><div style=\"opacity:.7;font-size:.77rem\">Rappels sur "+e+"</div></div>";}
+
+function sd(name,ico,id){var d={ts:Date.now(),name:name,ico:ico,id:id,date:new Date().toLocaleDateString("fr-FR")};dos.unshift(d);if(dos.length>30)dos=dos.slice(0,30);try{localStorage.setItem("dmia3",JSON.stringify(dos));}catch(e){}}
+function rd(){
+  var el=document.getElementById("dl");if(!el)return;
+  if(!dos.length){el.innerHTML="<div style=\"text-align:center;padding:3rem 1rem\"><div style=\"font-size:2.5rem;margin-bottom:.7rem\">&#128193;</div><div style=\"font-weight:700;margin-bottom:.38rem\">Aucun dossier</div><div style=\"font-size:.78rem;color:var(--mu)\">Fais une demarche et elle apparait ici.</div><button class=\"btnp\" style=\"margin-top:1rem;padding:.6rem 1.5rem;font-size:.78rem;width:auto\" onclick=\"sw('home')\">Commencer</button></div>";return;}
+  el.innerHTML=dos.map(function(d){return "<div style=\"background:var(--wh);border:1px solid var(--brd);border-radius:12px;padding:.85rem .95rem;margin-bottom:.55rem;display:flex;align-items:center;gap:.75rem;box-shadow:var(--sh);cursor:pointer\" onclick=\"go('"+d.id+"')\"><div style=\"font-size:1.35rem\">"+d.ico+"</div><div style=\"flex:1\"><div style=\"font-size:.83rem;font-weight:700\">"+d.name+"</div><div style=\"font-size:.69rem;color:var(--mu)\">Consulte le "+d.date+"</div></div><div style=\"font-size:.63rem;font-weight:600;color:var(--gn);background:var(--gl);padding:.18rem .48rem;border-radius:7px\">Termine</div></div>";}).join("");}
+
+function tg(row){var t=row.querySelector(".tgl");if(!t)return;t.classList.toggle("on");t.classList.toggle("off");}
+function cd(){if(confirm("Supprimer tout l historique ?")){dos=[];try{localStorage.removeItem("dmia3");}catch(e){}alert("Donnees supprimees.");}}
+
+function sw(tab){
+  var map={home:"home",dems:"home",dossiers:"dossiers",params:"params"};
+  sp(map[tab]||"home");
+  document.querySelectorAll(".bni").forEach(function(b){b.classList.remove("on");});
+  var id="bn-"+(tab==="dems"?"home":tab);
+  var el=document.getElementById(id);if(el)el.classList.add("on");
+  if(tab==="dossiers")rd();
+}
+function sp(id){
+  document.querySelectorAll(".page").forEach(function(p){p.classList.remove("active");});
+  var el=document.getElementById("pg-"+id);if(el)el.classList.add("active");
+}
+
+rh();
+</script>
+
+</body></html>
